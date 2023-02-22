@@ -1,0 +1,59 @@
+.Sidebar {
+  padding: 32px 0 0 32px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 232px;
+  height: 836px;
+  background: #2c2f33;
+  border-radius: 24px;
+}
+.block-logo {
+  height: 10%;
+}
+.punto {
+  position: absolute;
+  left: 131.5px;
+  top: 71px;
+}
+.logo {
+  position: absolute;
+  left: 128px;
+  top: 46px;
+}
+.block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 16px;
+  gap: 16px;
+  color: #94979a;
+  width: 232px;
+  height: 56px;
+}
+.block:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(186, 37, 37, 0) 0%,
+    rgba(210, 77, 77, 0.1) 100%
+  );
+}
+
+.block:hover img {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(99%) saturate(1758%)
+    hue-rotate(329deg) brightness(89%) contrast(91%);
+}
+
+.block:hover p {
+  color: #da584b;
+}
+
+.dashboard {
+  height: 18px;
+  width: 18px;
+}
+.task {
+  height: 18px;
+  width: 18px;
+}
