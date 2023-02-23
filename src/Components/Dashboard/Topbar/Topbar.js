@@ -3,14 +3,20 @@ import list from "./List.svg";
 import square from "./Square.svg";
 import plus from "./Plus.svg";
 
-export const Topbar = () => {
+export const Topbar = (props) => {
   return (
     <div className="Topbar">
       <div className="block1">
-        <button className="list">
+        <button
+          onClick={() => props.handleButtonClick("list")}
+          className="list"
+        >
           <img src={list} alt="list" />
         </button>
-        <button className="square">
+        <button
+          onClick={() => props.handleButtonClick("panel")}
+          className="square"
+        >
           <img src={square} alt="square" />
         </button>
       </div>
