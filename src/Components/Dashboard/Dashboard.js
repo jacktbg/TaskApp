@@ -1,9 +1,14 @@
 import "./dashboard.css";
+import {Topbar} from "./Topbar/Topbar";
+import {Panel} from "./Panel/Panel";
+import {Tasks} from "./Tasks/Tasks";
 
 export const Dashboard = () => {
   return (
     <div className="Dashboard">
-      <h1> soy un pto Dashboard</h1>
+      <Topbar className="Topbar" />
+      <Panel className="Panel" />
+      <Tasks className="Tasks" />
     </div>
   );
 };

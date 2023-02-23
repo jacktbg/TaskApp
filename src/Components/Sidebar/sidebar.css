@@ -1,7 +1,7 @@
 .Sidebar {
   padding: 32px 0 0 32px;
 }
-.container {
+.sidebar-container {
   display: flex;
   flex-direction: column;
   width: 232px;

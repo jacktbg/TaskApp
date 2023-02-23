@@ -7,7 +7,7 @@ import task from "./Task.svg";
 export const Sidebar = () => {
   return (
     <div className="Sidebar">
-      <div className="container">
+      <div className="sidebar-container">
         <div className="block-logo">
           <img src={punto} className="punto" alt="punto" />
           <img src={logo} className="logo" alt="logo" />
