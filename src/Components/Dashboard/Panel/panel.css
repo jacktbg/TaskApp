@@ -1,0 +1,20 @@
+.Panel {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding-top: 20px;
+}
+.working,
+.progress,
+.completed {
+  width: calc(100% / 3);
+  height: 100%;
+}
+.working h2,
+.progress h2,
+.completed h2 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+  color: #ffffff;
+}

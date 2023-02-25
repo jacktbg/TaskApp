@@ -1,0 +1,22 @@
+.Info {
+  display: flex;
+  flex-direction: row;
+  width: 316px;
+  height: 32px;
+  justify-content: space-between;
+}
+.Info p {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.75px;
+  color: #ffffff;
+}
+.Info button {
+  background-color: transparent;
+}
+.Info button img {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(8%) saturate(125%)
+    hue-rotate(169deg) brightness(88%) contrast(86%);
+  width: 18px;
+  height: 4px;
+}
