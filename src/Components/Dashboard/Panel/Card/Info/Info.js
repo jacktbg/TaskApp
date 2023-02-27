@@ -1,5 +1,5 @@
 import "./info.css";
-import menu from "./ThreePoints.svg";
+import menu from "../Images/ThreePoints.svg";
 
 export const Info = () => {
   return (

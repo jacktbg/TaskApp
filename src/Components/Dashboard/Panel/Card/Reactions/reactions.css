@@ -1,0 +1,31 @@
+.Reactions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile,
+.profile > img {
+  height: 32px;
+  width: 32px;
+}
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 106px;
+  height: 24px;
+  gap: 0px 24px;
+}
+.actions-items {
+  display: flex;
+  flex-direction: row;
+  gap: 0px 4px;
+  width: 16px;
+  height: 16px;
+}
+.actions p {
+  font-weight: 400;
+  font-size: 15px;
+  color: #ffffff;
+}

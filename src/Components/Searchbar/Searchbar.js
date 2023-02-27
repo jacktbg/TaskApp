@@ -1,7 +1,7 @@
 import "./searchbar.css";
-import lens from "./Lens.svg";
-import bell from "./Bell.svg";
-import profile from "./Profile.svg";
+import lens from "./Images/Lens.svg";
+import bell from "./Images/Bell.svg";
+import profile from "./Images/Profile.svg";
 
 export const Searchbar = () => {
   return (

@@ -26,13 +26,13 @@
   margin: 11px 0 11px 0;
 }
 
-.square:active,
-.list:active {
+.square:focus,
+.list:focus {
   border: 1px solid #da584b;
   border-radius: 8px;
 }
-.square:active img,
-.list:active img {
+.square:focus img,
+.list:focus img {
   filter: brightness(0) saturate(100%) invert(48%) sepia(48%) saturate(749%)
     hue-rotate(317deg) brightness(86%) contrast(99%);
 }

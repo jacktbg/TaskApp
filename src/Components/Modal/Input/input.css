@@ -1,0 +1,17 @@
+.Input {
+  width: 100%;
+}
+.Input input {
+  width: 100%;
+  background: transparent;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.75px;
+  color: #ffffff;
+}
+.Input input::placeholder {
+  color: #94979a;
+}
+.Input input:focus::placeholder {
+  color: transparent;
+}

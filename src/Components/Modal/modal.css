@@ -1,0 +1,21 @@
+.Modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.493);
+}
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  align-items: flex-end;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 572px;
+  height: 184px;
+  padding: 16px;
+  gap: 24px;
+  background: #393d41;
+  border-radius: 8px;
+}

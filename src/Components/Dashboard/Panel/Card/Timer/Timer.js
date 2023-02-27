@@ -1,5 +1,5 @@
 import "./timer.css";
-import clock from "./Clock.svg";
+import clock from "../Images/Clock.svg";
 
 export const Timer = () => {
   return (

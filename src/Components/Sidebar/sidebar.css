@@ -28,16 +28,10 @@
   align-items: center;
   padding: 0px 0px 0px 16px;
   gap: 16px;
+  background-color: transparent;
   color: #94979a;
   width: 232px;
   height: 56px;
-}
-.block:hover {
-  background: linear-gradient(
-    90deg,
-    rgba(186, 37, 37, 0) 0%,
-    rgba(210, 77, 77, 0.1) 100%
-  );
 }
 
 .block:hover img {
@@ -48,7 +42,21 @@
 .block:hover p {
   color: #da584b;
 }
+.block:focus {
+  background: linear-gradient(
+    90deg,
+    rgba(186, 37, 37, 0) 0%,
+    rgba(210, 77, 77, 0.1) 100%
+  );
+}
+.block:focus img {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(99%) saturate(1758%)
+    hue-rotate(329deg) brightness(89%) contrast(91%);
+}
 
+.block:focus p {
+  color: #da584b;
+}
 .dashboard {
   height: 18px;
   width: 18px;

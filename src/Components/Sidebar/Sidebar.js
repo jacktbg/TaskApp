@@ -1,10 +1,17 @@
 import "./sidebar.css";
-import punto from "./Punto.svg";
-import logo from "./Logo.svg";
-import dashboard from "./Dashboard.svg";
-import task from "./Task.svg";
+import punto from "./Images/Punto.svg";
+import logo from "./Images/Logo.svg";
+import dashboard from "./Images/Dashboard.svg";
+import task from "./Images/Task.svg";
 
-export const Sidebar = () => {
+export const Sidebar = ({handleButtonClick}) => {
+  const handlePanelButtonClick = () => {
+    handleButtonClick("panel");
+  };
+  const handleListButtonClick = () => {
+    handleButtonClick("list");
+  };
+
   return (
     <div className="Sidebar">
       <div className="sidebar-container">
@@ -12,14 +19,14 @@ export const Sidebar = () => {
           <img src={punto} className="punto" alt="punto" />
           <img src={logo} className="logo" alt="logo" />
         </div>
-        <div className="block">
+        <button className="block" onClick={handlePanelButtonClick}>
           <img src={dashboard} className="dashboard" alt="dashboard" />
           <p>DASHBOARD</p>
-        </div>
-        <div className="block">
+        </button>
+        <button className="block" onClick={handleListButtonClick}>
           <img src={task} className="task" alt="task" />
           <p>MY TASK</p>
-        </div>
+        </button>
       </div>
     </div>
   );
