@@ -1,0 +1,10 @@
+.EstimateModal {
+  display: flex;
+  flex-direction: column;
+  width: 122px;
+  height: 208px;
+  background: #393d41;
+  border: 1px solid #94979a;
+  border-radius: 8px;
+  padding: 8px 0px;
+}
