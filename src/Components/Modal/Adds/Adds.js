@@ -1,14 +1,14 @@
 import "./adds.css";
 import {Calendar} from "./Calendar/Calendar";
 import {Estimate} from "./Estimate/Estimate";
-import {Person} from "./Person/Person";
+import {Assignee} from "./Assignee/Assignee";
 import {Tag} from "./Tag/Tag";
 
 export const Adds = () => {
   return (
     <div className="Adds">
       <Estimate />
-      <Person />
+      <Assignee />
       <Tag />
       <Calendar />
     </div>

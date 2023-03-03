@@ -1,18 +1,17 @@
-import {useState} from "react";
+// import {useState} from "react";
 import estimate from "../../Images/Estimate.svg";
 import {EstimateModal} from "./EstimateModal";
+import {ModalService} from "../../../../Services/ModalService";
 
 export const Estimate = () => {
-  const [showModal, setShowModal] = useState(false);
-  const handleShowModal = () => {
-    setShowModal(true);
-  };
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
+  const {showModal, handleShowModal, handleCloseModal} = ModalService();
   return (
     <div>
-      <button className="Estimate" onClick={handleShowModal}>
+      <button
+        className="Estimate"
+        onClick={handleShowModal}
+        label="open time selection modal"
+      >
         <img src={estimate} alt="plus and minus" />
         <p>Estimate</p>
       </button>

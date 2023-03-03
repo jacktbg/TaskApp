@@ -7,4 +7,35 @@
   border: 1px solid #94979a;
   border-radius: 8px;
   padding: 8px 0px;
+  margin-top: 8px;
+}
+.EstimateModal > p {
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.75px;
+  color: #94979a;
+}
+.EstimateModal > button {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  padding: 4px 16px 4px 16px;
+  gap: 0px 8px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.EstimateModal > button > img {
+  width: 20px;
+  height: 18px;
+}
+.EstimateModal > button > p {
+  font-weight: 400;
+  font-size: 15px;
+  white-space: nowrap;
+  letter-spacing: 0.75px;
+  color: #ffffff;
 }
