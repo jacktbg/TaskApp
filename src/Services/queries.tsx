@@ -25,3 +25,17 @@ const CREATE_TASK_MUTATION = gql`
     }
   }
 `;
+
+const GET_USER = gql`
+getUser {
+  __type(name: "User") {
+    name
+    fields {
+      name
+      type {
+        name
+        kind
+      }
+    }
+  }
+}`
