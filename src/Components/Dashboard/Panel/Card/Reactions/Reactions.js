@@ -1,14 +1,13 @@
 import "./reactions.css";
-import profile from "../Images/Profile.svg";
 import clip from "../Images/Clip.svg";
 import chart from "../Images/Chart.svg";
 import coment from "../Images/Coment.svg";
 
-export const Reactions = () => {
+export const Reactions = ({assignee}) => {
   return (
     <div className="Reactions">
       <div className="profile">
-        <img src={profile} alt="profile" />
+        <img src={assignee} alt="profile" />
       </div>
       <div className="actions">
         <div className="actions-items">

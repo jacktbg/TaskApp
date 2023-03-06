@@ -1,13 +1,12 @@
 import "./tags.css";
-export const Tags = () => {
+export const Tags = ({tags}) => {
   return (
     <div className="Tags">
-      <div className="ios">
-        <p>IOS APP</p>
-      </div>
-      <div className="android">
-        <p>ANDROID</p>
-      </div>
+      {tags.map((tag) => (
+        <div className={tag}>
+          <p>{tag}</p>
+        </div>
+      ))}
     </div>
   );
 };

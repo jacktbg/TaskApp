@@ -6,13 +6,15 @@ export const Panel = () => {
     <div className="Panel">
       <div className="working">
         <h2>Working</h2>
-        <Card />
+        <Card status="TODO" />
       </div>
       <div className="progress">
         <h2>In Progress</h2>
+        <Card status="IN_PROGRESS" />
       </div>
       <div className="completed">
         <h2>Completed</h2>
+        <Card status="DONE" />
       </div>
     </div>
   );
