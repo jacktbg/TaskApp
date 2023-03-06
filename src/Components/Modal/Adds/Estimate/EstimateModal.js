@@ -1,4 +1,4 @@
-import "./modal.css";
+import "./estimate.css";
 import estimate from "../../Images/Estimate.svg";
 
 export const EstimateModal = ({handleCloseModal}) => {

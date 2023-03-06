@@ -1,0 +1,50 @@
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 0px;
+  position: relative;
+  cursor: pointer;
+}
+
+.LabelModal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  margin: 19px 0 0 -48px;
+  padding: 8px 0;
+  width: 231px;
+  background: #393d41;
+  border: 1px solid #94979a;
+  border-radius: 8px;
+}
+.LabelModal > p {
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.75px;
+  padding: 10px;
+  color: #94979a;
+}
+.LabelModal > div {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 16px;
+  gap: 8px 0;
+  width: 231px;
+  height: 32px;
+  border-radius: 4px;
+  align-self: stretch;
+}
+.LabelModal > div > input[type="checkbox"]:before {
+  background-color: transparent;
+}
+.LabelModal > div > label {
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.75px;
+  color: #ffffff;
+  margin-left: 11px;
+}

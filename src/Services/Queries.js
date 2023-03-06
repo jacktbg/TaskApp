@@ -1,34 +1,17 @@
 import {gql} from "@apollo/client";
 
-// export const CREATE_TASK_MUTATION = gql`
-//   mutation CreateTask($input: CreateTaskInput!) {
-//     createTask(input: $input) {
-//       assignee {
-//         id
-//         name
-//       }
-//       createdAt
-//       creator {
-//         id
-//         name
-//       }
-//       dueDate
-//       id
-//       name
-//       pointEstimate
-//       position
-//       status
-//       tags {
-//         id
-//         name
-//       }
-//     }
-//   }
-// `;
-
-export const GET_USER = gql`
-  query {
+export const GET_USERS = gql`
+  query users {
     users {
+      id
+      avatar
+      email
+    }
+  }
+`;
+export const GET_PROFILE = gql`
+  query profile {
+    profile {
       id
       avatar
       email

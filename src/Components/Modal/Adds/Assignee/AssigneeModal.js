@@ -37,6 +37,5 @@ export const AssigneeModal = ({handleCloseModal}) => {
 };
 AssigneeModalButton.propTypes = {
   handleCloseModal: PropTypes.func.isRequired,
-  fullName: PropTypes.arrayOf(PropTypes.string).isRequired,
   name: PropTypes.string.isRequired,
 };

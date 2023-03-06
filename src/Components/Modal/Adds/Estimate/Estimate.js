@@ -1,4 +1,3 @@
-// import {useState} from "react";
 import estimate from "../../Images/Estimate.svg";
 import {EstimateModal} from "./EstimateModal";
 import {ModalService} from "../../../../Services/ModalService";

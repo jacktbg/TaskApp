@@ -1,9 +1,10 @@
 import "./home.css";
-import React, {useState} from "react";
+import {useState} from "react";
 import {Dashboard} from "../../Components/Dashboard/Dashboard";
 import {Sidebar} from "../../Components/Sidebar/Sidebar";
 import {Searchbar} from "../../Components/Searchbar/Searchbar";
 import {Modal} from "../../Components/Modal/Modal";
+
 export const Home = () => {
   const [activeButton, setActiveButton] = useState("panel");
   const handleSidebarButtonClick = (whatToShow) => {
