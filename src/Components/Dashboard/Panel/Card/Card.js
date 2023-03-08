@@ -3,7 +3,7 @@ import {Info} from "./Info/Info";
 import {Timer} from "./Timer/Timer";
 import {Tags} from "./Tags/Tags";
 import {Reactions} from "./Reactions/Reactions";
-import {GET_TASKS} from "../../../../Services/TasksQueries";
+import {GET_TASKS} from "../../../../Services/Queries/TasksQueries";
 import {useQuery} from "@apollo/client";
 
 export const Card = ({status}) => {

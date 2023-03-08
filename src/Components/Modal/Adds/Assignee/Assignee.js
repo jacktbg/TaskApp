@@ -7,7 +7,7 @@ export const Assignee = () => {
   return (
     <div className="Assignee">
       <button
-        onClick={handleShowModal}
+        onClick={showModal ? handleCloseModal : handleShowModal}
         aria-label="Open assignee selection modal"
       >
         <img src={person} alt="person symbol" />

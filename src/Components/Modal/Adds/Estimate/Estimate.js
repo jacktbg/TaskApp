@@ -8,7 +8,7 @@ export const Estimate = () => {
     <div>
       <button
         className="Estimate"
-        onClick={handleShowModal}
+        onClick={showModal ? handleCloseModal : handleShowModal}
         label="open time selection modal"
       >
         <img src={estimate} alt="plus and minus" />
