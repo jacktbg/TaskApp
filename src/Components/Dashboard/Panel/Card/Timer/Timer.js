@@ -1,7 +1,7 @@
 import "./timer.css";
 import clock from "../Images/Clock.svg";
 
-function stringToNumber(str) {
+export function stringToNumber(str) {
   const numberMap = {
     ZERO: 0,
     ONE: 1,

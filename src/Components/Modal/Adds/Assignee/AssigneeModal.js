@@ -1,41 +1,32 @@
-import PropTypes from "prop-types";
 import "./assignee.css";
-import profile from "../../Images/Profile.svg";
+import {GET_USERS} from "../../../../Services/Queries/UserQueries";
+import {useQuery} from "@apollo/client";
 
-const AssigneeModalButton = ({name, handleCloseModal}) => {
+const AssigneeModalButton = ({name, image, handleCloseModal}) => {
   return (
     <button onClick={handleCloseModal} aria-label={`Assign task to ${name}`}>
-      <img src={profile} alt="profile" />
+      <img src={image} alt="profile" />
       <p>{name}</p>
     </button>
   );
 };
 
 export const AssigneeModal = ({handleCloseModal}) => {
-  const fullName = [
-    "Jerome Bell",
-    "Robert Fox",
-    "Marvin McKinney",
-    "Jone Cooper",
-    "Ralph Edwards",
-    "Wade Warren",
-    "Savannah Nguyen",
-  ];
-
+  const {loading, error, data} = useQuery(GET_USERS);
+  if (loading) return <p>loading</p>;
+  if (error) return <p>${error}</p>;
+  const users = data.users;
   return (
     <div className="AssigneeModal">
       <p>Assign To...</p>
-      {fullName.map((name, index) => (
+      {users.map(({id, fullName, avatar}) => (
         <AssigneeModalButton
-          key={index}
-          name={name}
+          key={id}
+          name={fullName}
+          image={avatar}
           handleCloseModal={handleCloseModal}
         />
       ))}
     </div>
   );
-};
-AssigneeModalButton.propTypes = {
-  handleCloseModal: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
 };

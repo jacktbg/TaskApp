@@ -11,19 +11,21 @@ export const Card = ({status}) => {
     variables: {status},
   });
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
-  const tasks = data.tasks;
+  if (error) return <p>${error}</p>;
+  const tasks = data?.tasks ?? {};
 
   return (
     <div className="Card">
-      {tasks.map((task) => (
-        <div className="card-container" key={task.id}>
-          <Info name={task.name} />
-          <Timer points={task.pointEstimate} date={task.dueDate} />
-          <Tags tags={task.tags} />
-          <Reactions assignee={task.assignee.avatar} />
-        </div>
-      ))}
+      {tasks.map(
+        ({id, name, pointEstimate, dueDate, tags, assignee: {avatar}}) => (
+          <div className="card-container" key={id}>
+            <Info name={name} />
+            <Timer points={pointEstimate} date={dueDate} />
+            <Tags tags={tags} />
+            <Reactions assignee={avatar} />
+          </div>
+        )
+      )}
     </div>
   );
 };
