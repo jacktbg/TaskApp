@@ -8,7 +8,6 @@
 .progress,
 .completed {
   width: calc(100% / 3);
-  height: 100%;
   overflow: scroll;
 }
 .working h2,
