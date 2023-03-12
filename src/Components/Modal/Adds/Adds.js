@@ -4,13 +4,18 @@ import {Estimate} from "./Estimate/Estimate";
 import {Assignee} from "./Assignee/Assignee";
 import {Label} from "./Label/Label";
 
-export const Adds = () => {
+export const Adds = ({
+  setPointEstimate,
+  setAssigneeId,
+  setTags,
+  setDueDate,
+}) => {
   return (
     <div className="Adds">
-      <Estimate />
-      <Assignee />
-      <Label />
-      <Calendar />
+      <Estimate setPointEstimate={setPointEstimate} />
+      <Assignee setAssigneeId={setAssigneeId} />
+      <Label setTags={setTags} />
+      <Calendar setDueDate={setDueDate} />
     </div>
   );
 };

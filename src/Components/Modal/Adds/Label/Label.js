@@ -2,7 +2,7 @@ import tag from "../../Images/Tag.svg";
 import {ModalService} from "../../../../Services/ModalService";
 import {LabelModal} from "./LabelModal";
 
-export const Label = () => {
+export const Label = ({setTags}) => {
   const {showModal, handleCloseModal, handleShowModal} = ModalService();
   return (
     <div className="Label">
@@ -10,7 +10,7 @@ export const Label = () => {
         <img src={tag} alt="label or tag" />
         <p>Label</p>
       </button>
-      {showModal && <LabelModal handleCloseModal={handleCloseModal} />}
+      {showModal && <LabelModal setTags={setTags} />}
     </div>
   );
 };

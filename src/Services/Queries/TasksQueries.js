@@ -23,3 +23,23 @@ export const GET_TASKS = gql`
     }
   }
 `;
+
+export const CREATE_TASK = gql`
+  mutation CreateTask($input: CreateTaskInput!) {
+    createTask(input: $input) {
+      id
+      name
+      status
+      pointEstimate
+      tags
+      assignee {
+        id
+        fullName
+      }
+      creator {
+        id
+        fullName
+      }
+    }
+  }
+`;

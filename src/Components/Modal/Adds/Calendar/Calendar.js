@@ -1,11 +1,15 @@
+import {useRef} from "react";
 import calendar from "../../Images/Calendar.svg";
 
-export const Calendar = () => {
+export const Calendar = ({setDueDate}) => {
+  const datepickerRef = useRef(null);
+
+  const handleDateChange = (event) => {
+    setDueDate(event.target.value);
+  };
+
   const handleClick = () => {
-    const datepicker = document.getElementById("datepicker");
-    if (datepicker) {
-      datepicker.showPicker();
-    }
+    datepickerRef.current?.showPicker();
   };
 
   return (
@@ -18,6 +22,8 @@ export const Calendar = () => {
         type="date"
         id="datepicker"
         style={{visibility: "hidden", position: "absolute"}}
+        onChange={handleDateChange}
+        ref={datepickerRef}
       />
     </div>
   );

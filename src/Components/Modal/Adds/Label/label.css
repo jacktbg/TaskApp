@@ -1,15 +1,3 @@
-input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #ccc;
-  border-radius: 0px;
-  position: relative;
-  cursor: pointer;
-}
-
 .LabelModal {
   position: fixed;
   display: flex;
@@ -38,8 +26,13 @@ input[type="checkbox"] {
   border-radius: 4px;
   align-self: stretch;
 }
-.LabelModal > div > input[type="checkbox"]:before {
-  background-color: transparent;
+.LabelModal > div > input {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 0px;
+  margin-top: -2.3px;
+  cursor: pointer;
 }
 .LabelModal > div > label {
   font-weight: 400;

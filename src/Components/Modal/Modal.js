@@ -2,14 +2,57 @@ import "./modal.css";
 import {Input} from "./Input/Input";
 import {Adds} from "./Adds/Adds";
 import {Buttons} from "./Buttons/Buttons";
+import {CREATE_TASK} from "../../Services/Queries/TasksQueries";
+import {useState} from "react";
+import {useMutation} from "@apollo/client";
 export const Modal = ({handleCloseModal}) => {
+  const [name, setName] = useState("");
+  const [pointEstimate, setPointEstimate] = useState("");
+  const [assigneeId, setAssigneeId] = useState("");
+  const [tags, setTags] = useState([]);
+  const [dueDate, setDueDate] = useState("");
+  const status = "DONE";
+
+  const [createTask] = useMutation(CREATE_TASK, {
+    onCompleted: () => {
+      handleCloseModal();
+    },
+    onError: (error) => {
+      console.error(error);
+    },
+  });
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    createTask({
+      variables: {
+        input: {
+          name,
+          pointEstimate,
+          assigneeId,
+          tags,
+          dueDate,
+          status,
+        },
+      },
+    });
+  };
+
   return (
     <div className="Modal">
-      <div className="modal-container">
-        <Input />
-        <Adds />
-        <Buttons handleCloseModal={handleCloseModal} />
-      </div>
+      <form onSubmit={handleSubmit} className="modal-container">
+        <Input setName={setName} />
+        <Adds
+          setPointEstimate={setPointEstimate}
+          setAssigneeId={setAssigneeId}
+          setTags={setTags}
+          setDueDate={setDueDate}
+        />
+        <Buttons
+          handleCloseModal={handleCloseModal}
+          handleSubmit={handleSubmit}
+        />
+      </form>
     </div>
   );
 };
