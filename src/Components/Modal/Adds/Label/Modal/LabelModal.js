@@ -1,8 +1,8 @@
-import "./label.css";
-import {GET_TAGS} from "../../../../Services/Queries/ValuesQueries";
+import "./labelModal.css";
+import {GET_TAGS} from "../../../../../Services/Queries/ValuesQueries";
 import {useQuery} from "@apollo/client";
 
-export const LabelModal = ({setTags}) => {
+export const LabelModal = ({setTags, setName}) => {
   const {data, loading, error} = useQuery(GET_TAGS);
 
   if (loading) return <p>Loading ...</p>;
@@ -14,8 +14,10 @@ export const LabelModal = ({setTags}) => {
     const tagName = event.target.value;
     if (event.target.checked) {
       setTags((prevTags) => [...prevTags, tagName]);
+      setName((prevTags) => [...prevTags, tagName]);
     } else {
       setTags((prevTags) => prevTags.filter((tag) => tag !== tagName));
+      setName((prevTags) => prevTags.filter((tag) => tag !== tagName));
     }
   };
   return (

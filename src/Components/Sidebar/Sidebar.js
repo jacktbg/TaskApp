@@ -4,12 +4,12 @@ import logo from "./Images/Logo.svg";
 import dashboard from "./Images/Dashboard.svg";
 import task from "./Images/Task.svg";
 
-export const Sidebar = ({handleButtonClick}) => {
+export const Sidebar = ({handleChangeView}) => {
   const handlePanelButtonClick = () => {
-    handleButtonClick("panel");
+    handleChangeView("panel");
   };
   const handleListButtonClick = () => {
-    handleButtonClick("list");
+    handleChangeView("list");
   };
 
   return (

@@ -9,17 +9,14 @@ import {ModalService} from "../../Services/ModalService";
 export const Home = () => {
   const {showModal, handleShowModal, handleCloseModal} = ModalService();
   const [activeButton, setActiveButton] = useState("panel");
-  const handleSidebarButtonClick = (whatToShow) => {
+  const handleChangeView = (whatToShow) => {
     setActiveButton(whatToShow);
   };
 
   return (
     <div className="Home">
       <Searchbar className="Searchbar" />
-      <Sidebar
-        className="Sidebar"
-        handleButtonClick={handleSidebarButtonClick}
-      />
+      <Sidebar className="Sidebar" handleChangeView={handleChangeView} />
       <Dashboard
         className="Dashboard"
         activeButton={activeButton}

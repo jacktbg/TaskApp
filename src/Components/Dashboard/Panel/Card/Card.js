@@ -9,6 +9,7 @@ import {useQuery} from "@apollo/client";
 export const Card = ({status}) => {
   const {loading, error, data} = useQuery(GET_TASKS, {
     variables: {status},
+    pollInterval: 500,
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <p>${error}</p>;

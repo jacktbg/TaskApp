@@ -2,20 +2,19 @@ import "./panel.css";
 import {Card} from "./Card/Card";
 
 export const Panel = () => {
+  const panelArray = [
+    {heading: "Working", param: "TODO"},
+    {heading: "In Progress", param: "IN_PROGRESS"},
+    {heading: "Completed", param: "DONE"},
+  ];
   return (
     <div className="Panel">
-      <div className="working">
-        <h2>Working</h2>
-        <Card status="TODO" />
-      </div>
-      <div className="progress">
-        <h2>In Progress</h2>
-        <Card status="IN_PROGRESS" />
-      </div>
-      <div className="completed">
-        <h2>Completed</h2>
-        <Card status="DONE" />
-      </div>
+      {panelArray.map(({heading, param}) => (
+        <div key={param}>
+          <h2>{heading}</h2>
+          <Card status={param} />
+        </div>
+      ))}
     </div>
   );
 };

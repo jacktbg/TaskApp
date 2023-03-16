@@ -1,43 +1,22 @@
-.LabelModal {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  margin: 19px 0 0 -48px;
-  padding: 8px 0;
-  width: 231px;
-  background: #393d41;
-  border: 1px solid #94979a;
-  border-radius: 8px;
-}
-.LabelModal > p {
-  font-weight: 600;
-  font-size: 20px;
-  letter-spacing: 0.75px;
-  padding: 10px;
-  color: #94979a;
-}
-.LabelModal > div {
+.Label > button {
   display: flex;
   flex-direction: row;
-  padding: 4px 16px;
-  gap: 8px 0;
-  width: 231px;
-  height: 32px;
+  padding: 4px 16px 4px 16px;
+  gap: 0 8px;
+  align-items: center;
+  height: 100%;
   border-radius: 4px;
-  align-self: stretch;
+  background: rgba(148, 151, 154, 0.1);
 }
-.LabelModal > div > input {
-  width: 18px;
-  height: 18px;
-  border: 2px solid #ccc;
-  border-radius: 0px;
-  margin-top: -2.3px;
-  cursor: pointer;
+.Label img {
+  width: 20.8px;
+  height: 20.8px;
 }
-.LabelModal > div > label {
-  font-weight: 400;
+.Label p {
+  color: #ffffff;
+  font-weight: 600;
   font-size: 15px;
   letter-spacing: 0.75px;
-  color: #ffffff;
-  margin-left: 11px;
+  margin-top: 5%;
+  white-space: nowrap;
 }

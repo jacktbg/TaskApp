@@ -12,7 +12,8 @@
   top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 572px;
+  min-width: 572px;
+  width: auto;
   height: 184px;
   padding: 16px;
   gap: 24px;

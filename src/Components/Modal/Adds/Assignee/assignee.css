@@ -1,42 +1,33 @@
-.AssigneeModal {
-  margin-top: 8px;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  padding: 8px 0px 0px;
-  width: 239px;
-  background: #393d41;
-  border: 1px solid #94979a;
-  border-radius: 8px;
-}
-.AssigneeModal > p {
-  font-weight: 600;
-  font-size: 20px;
-  letter-spacing: 0.75px;
-  margin-left: 16px;
-  color: #94979a;
-}
-.AssigneeModal button {
+.assignee-button,
+.assignee-focused {
   display: flex;
   flex-direction: row;
+  padding: 4px 16px 4px 16px;
+  gap: 0 8px;
   align-items: center;
-  padding: 4px 16px;
-  gap: 8px;
-  width: 239px;
-  height: 56px;
-  background-color: transparent;
+  height: 100%;
+  border-radius: 4px;
 }
-
-.AssigneeModal button > img {
-  height: 32px;
+.assignee-button {
+  background: rgba(148, 151, 154, 0.1);
+}
+.assignee-focused {
+  background: transparent;
+}
+.assignee-img {
   width: 32px;
+  width: 32px;
+  border-radius: 50%;
 }
-.AssigneeModal button > p {
-  width: 167px;
-  height: 24px;
-  font-weight: 400;
+.person-img {
+  width: 16px;
+  height: 21px;
+}
+.Assignee p {
+  color: #ffffff;
+  font-weight: 600;
   font-size: 15px;
   letter-spacing: 0.75px;
-  color: #ffffff;
-  text-align: left;
+  margin-top: 5%;
+  white-space: nowrap;
 }

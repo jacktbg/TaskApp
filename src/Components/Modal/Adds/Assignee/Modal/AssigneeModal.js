@@ -1,5 +1,5 @@
-import "./assignee.css";
-import {GET_USERS} from "../../../../Services/Queries/UserQueries";
+import "./assigneeModal.css";
+import {GET_USERS} from "../../../../../Services/Queries/UserQueries";
 import {useQuery} from "@apollo/client";
 
 const AssigneeModalButton = ({
@@ -8,12 +8,16 @@ const AssigneeModalButton = ({
   image,
   handleCloseModal,
   setAssigneeId,
+  setImage,
+  setName,
 }) => {
   return (
     <button
       onClick={() => {
         setAssigneeId(id);
         handleCloseModal();
+        setImage(image);
+        setName(name);
       }}
       aria-label={`Assign task to ${name}`}
     >
@@ -23,7 +27,12 @@ const AssigneeModalButton = ({
   );
 };
 
-export const AssigneeModal = ({handleCloseModal, setAssigneeId}) => {
+export const AssigneeModal = ({
+  handleCloseModal,
+  setAssigneeId,
+  setImage,
+  setName,
+}) => {
   const {loading, error, data} = useQuery(GET_USERS);
   if (loading) return <p>loading</p>;
   if (error) return <p>${error}</p>;
@@ -39,6 +48,8 @@ export const AssigneeModal = ({handleCloseModal, setAssigneeId}) => {
           image={avatar}
           handleCloseModal={handleCloseModal}
           setAssigneeId={setAssigneeId}
+          setImage={setImage}
+          setName={setName}
         />
       ))}
     </div>

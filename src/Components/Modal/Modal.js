@@ -2,7 +2,7 @@ import "./modal.css";
 import {Input} from "./Input/Input";
 import {Adds} from "./Adds/Adds";
 import {Buttons} from "./Buttons/Buttons";
-import {CREATE_TASK} from "../../Services/Queries/TasksQueries";
+import {CREATE_TASK, GET_TASKS} from "../../Services/Queries/TasksQueries";
 import {useState} from "react";
 import {useMutation} from "@apollo/client";
 export const Modal = ({handleCloseModal}) => {
@@ -11,12 +11,13 @@ export const Modal = ({handleCloseModal}) => {
   const [assigneeId, setAssigneeId] = useState("");
   const [tags, setTags] = useState([]);
   const [dueDate, setDueDate] = useState("");
-  const status = "DONE";
+  const status = "IN_PROGRESS";
 
   const [createTask] = useMutation(CREATE_TASK, {
     onCompleted: () => {
       handleCloseModal();
     },
+    refetchQueries: [{query: GET_TASKS}],
     onError: (error) => {
       console.error(error);
     },
