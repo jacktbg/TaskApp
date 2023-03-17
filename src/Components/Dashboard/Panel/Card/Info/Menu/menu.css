@@ -1,0 +1,48 @@
+.Menu {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0 8px 0;
+  gap: 8px;
+  position: fixed;
+  margin: 2% 0 0 12.8%;
+  width: 138px;
+  height: 88px;
+  background: #393d41;
+  border: 1px solid #94979a;
+  border-radius: 8px;
+}
+.Menu button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  background-color: transparent;
+}
+.Menu img {
+  width: 50%;
+}
+.Menu button:first-child > img {
+  height: 18px;
+  width: 18px;
+  margin: 4px 0 0 27px;
+}
+.Menu button:last-child > img {
+  height: 20px;
+  width: 20px;
+  margin: 3px 0 0 26px;
+}
+.Menu p {
+  width: 50%;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.75px;
+  color: #ffffff;
+  text-align: justify;
+  align-self: center;
+}
+.Menu button:first-child > p {
+  margin-left: 11px;
+}
+.Menu button:last-child > p {
+  margin-left: 10px;
+}

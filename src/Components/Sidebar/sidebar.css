@@ -23,6 +23,7 @@
   top: 46px;
 }
 .block {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,8 +36,9 @@
 }
 
 .block:hover img {
-  filter: brightness(0) saturate(100%) invert(47%) sepia(99%) saturate(1758%)
-    hue-rotate(329deg) brightness(89%) contrast(91%);
+  filter: brightness(0) saturate(100%) invert(47%)
+    sepia(99%) saturate(1758%) hue-rotate(329deg)
+    brightness(89%) contrast(91%);
 }
 
 .block:hover p {
@@ -50,8 +52,9 @@
   );
 }
 .block:focus img {
-  filter: brightness(0) saturate(100%) invert(47%) sepia(99%) saturate(1758%)
-    hue-rotate(329deg) brightness(89%) contrast(91%);
+  filter: brightness(0) saturate(100%) invert(47%)
+    sepia(99%) saturate(1758%) hue-rotate(329deg)
+    brightness(89%) contrast(91%);
 }
 
 .block:focus p {
