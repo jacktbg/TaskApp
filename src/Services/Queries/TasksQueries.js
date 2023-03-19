@@ -39,10 +39,25 @@ export const CREATE_TASK = gql`
     }
   }
 `
+
 export const DELETE_TASK = gql`
   mutation deleteTask($input: DeleteTaskInput!) {
     deleteTask(input: $input) {
       id
+    }
+  }
+`
+
+export const UpdateTaskInput = gql`
+  mutation updateTask($input: UpdateTaskInput!) {
+    updateTask(input: $input) {
+      assigneeId
+      dueDate
+      id
+      name
+      pointEstimate
+      status
+      tags
     }
   }
 `

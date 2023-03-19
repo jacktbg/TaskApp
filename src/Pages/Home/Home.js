@@ -1,28 +1,34 @@
-import "./home.css";
-import {useState} from "react";
-import {Dashboard} from "../../Components/Dashboard/Dashboard";
-import {Sidebar} from "../../Components/Sidebar/Sidebar";
-import {Searchbar} from "../../Components/Searchbar/Searchbar";
-import {Modal} from "../../Components/Modal/Modal";
-import {ModalService} from "../../Services/ModalService";
+import "./home.css"
+import { useState } from "react"
+import { Dashboard } from "../../Components/Dashboard/Dashboard"
+import { Sidebar } from "../../Components/Sidebar/Sidebar"
+import { Searchbar } from "../../Components/Searchbar/Searchbar"
+import { Modal } from "../../Components/Modal/Modal"
+import { ModalUtility } from "../../Utilities/ModalUtility"
 
 export const Home = () => {
-  const {showModal, handleShowModal, handleCloseModal} = ModalService();
-  const [activeButton, setActiveButton] = useState("panel");
+  const { showModal, handleShowModal, handleCloseModal } =
+    ModalUtility()
+  const [activeButton, setActiveButton] = useState("panel")
   const handleChangeView = (whatToShow) => {
-    setActiveButton(whatToShow);
-  };
+    setActiveButton(whatToShow)
+  }
 
   return (
     <div className="Home">
       <Searchbar className="Searchbar" />
-      <Sidebar className="Sidebar" handleChangeView={handleChangeView} />
+      <Sidebar
+        className="Sidebar"
+        handleChangeView={handleChangeView}
+      />
       <Dashboard
         className="Dashboard"
         activeButton={activeButton}
         handleShowModal={handleShowModal}
       />
-      {showModal && <Modal handleCloseModal={handleCloseModal} />}
+      {showModal && (
+        <Modal handleCloseModal={handleCloseModal} />
+      )}
     </div>
-  );
-};
+  )
+}

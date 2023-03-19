@@ -1,6 +1,6 @@
-import "./input.css";
+import "./input.css"
 
-export const Input = ({setName}) => {
+export const Input = ({ setName }) => {
   return (
     <div className="Input">
       <input
@@ -8,5 +8,5 @@ export const Input = ({setName}) => {
         onChange={(event) => setName(event.target.value)}
       />
     </div>
-  );
-};
+  )
+}
