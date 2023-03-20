@@ -3,17 +3,7 @@ import person from "../../Images/Person.svg"
 import { AssigneeModal } from "./Modal/AssigneeModal"
 import { ModalUtility } from "../../../../Utilities/ModalUtility"
 import { useState } from "react"
-
-export function shortName(str) {
-  const nameArray = str.split(" ")
-  if (nameArray.length > 2) {
-    return (
-      nameArray[0] + " " + nameArray[nameArray.length - 2]
-    )
-  } else {
-    return str
-  }
-}
+import { ShorterName } from "../../../../Utilities/ShorterName"
 
 export const Assignee = ({ setAssigneeId }) => {
   const { showModal, handleShowModal, handleCloseModal } =
@@ -36,7 +26,7 @@ export const Assignee = ({ setAssigneeId }) => {
           src={image ? image : person}
           alt="person symbol"
         />
-        <p>{name ? shortName(name) : "Assignee"}</p>
+        <p>{name ? ShorterName(name) : "Assignee"}</p>
       </button>
       {showModal && (
         <AssigneeModal

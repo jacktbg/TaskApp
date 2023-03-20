@@ -1,7 +1,7 @@
 import "./assigneeModal.css"
 import { GET_USERS } from "../../../../../Services/Queries/UserQueries"
 import { useQuery } from "@apollo/client"
-import { shortName } from "../Assignee"
+import { ShorterName } from "../../../../../Utilities/ShorterName"
 
 const AssigneeModalButton = ({
   id,
@@ -23,7 +23,7 @@ const AssigneeModalButton = ({
       aria-label={`Assign task to ${name}`}
     >
       <img src={image} alt="profile" />
-      <p>{shortName(name)}</p>
+      <p>{ShorterName(name)}</p>
     </button>
   )
 }
