@@ -1,11 +1,10 @@
 import "./info.css"
 import menu from "../Images/ThreePoints.svg"
 import { Menu } from "../../../../Menu/Menu"
-import { ModalUtility } from "../../../../../Utilities/ModalUtility"
-
+import { useModal } from "../../../../../Hooks/useModal"
 export const Info = ({ name, id }) => {
   const { showModal, handleShowModal, handleCloseModal } =
-    ModalUtility()
+    useModal()
   return (
     <div className="Info">
       <p>{name}</p>

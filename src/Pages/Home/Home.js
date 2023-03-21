@@ -4,11 +4,11 @@ import { Dashboard } from "../../Components/Dashboard/Dashboard"
 import { Sidebar } from "../../Components/Sidebar/Sidebar"
 import { Searchbar } from "../../Components/Searchbar/Searchbar"
 import { Modal } from "../../Components/Modal/Modal"
-import { ModalUtility } from "../../Utilities/ModalUtility"
+import { useModal } from "../../Hooks/useModal"
 
 export const Home = () => {
   const { showModal, handleShowModal, handleCloseModal } =
-    ModalUtility()
+    useModal()
   const [activeButton, setActiveButton] = useState("panel")
   const handleChangeView = (whatToShow) => {
     setActiveButton(whatToShow)

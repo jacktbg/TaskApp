@@ -3,12 +3,12 @@ import { Info } from "./Info/Info"
 import { Timer } from "./Timer/Timer"
 import { Tags } from "./Tags/Tags"
 import { Reactions } from "./Reactions/Reactions"
-import { GET_TASKS } from "../../../../Services/Queries/TasksQueries"
+import { GET_TASKS } from "../../../../Services/TasksQueries"
 import { useQuery } from "@apollo/client"
 
-export const Card = ({ taskStatus }) => {
+export const Card = ({ status }) => {
   const { loading, error, data } = useQuery(GET_TASKS, {
-    variables: { taskStatus },
+    variables: { status },
     pollInterval: 500,
   })
   if (loading) return <p>Loading...</p>

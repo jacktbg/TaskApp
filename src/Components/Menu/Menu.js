@@ -1,9 +1,13 @@
 import "./menu.css"
 import pencil from "./Images/Pencil.svg"
 import trash from "./Images/Trash.svg"
-import { DeleteTask } from "../../Services/DeleteTask"
+import { useDeleteTask } from "../../Hooks/useDeleteTask"
+
 export const Menu = ({ handleCloseModal, id }) => {
-  const handleDeleteTask = DeleteTask(handleCloseModal, id)
+  const handleDeleteTask = useDeleteTask(
+    handleCloseModal,
+    id
+  )
   return (
     <div className="Menu">
       <button>

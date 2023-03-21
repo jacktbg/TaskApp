@@ -1,6 +1,6 @@
 import "./estimateModal.css"
 import estimate from "../../../Images/Estimate.svg"
-import { GET_POINT_ESTIMATE } from "../../../../../Services/Queries/ValuesQueries"
+import { GET_POINT_ESTIMATE } from "../../../../../Services/ValuesQueries"
 import { useQuery } from "@apollo/client"
 import { StringToNumber } from "../../../../../Utilities/StringToNumberUtility"
 

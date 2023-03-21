@@ -12,7 +12,7 @@ export const Panel = () => {
       {panelArray.map(({ heading, param }) => (
         <div key={param}>
           <h2>{heading}</h2>
-          <Card taskStatus={param} />
+          <Card status={param} />
         </div>
       ))}
     </div>

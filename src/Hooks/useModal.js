@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const ModalUtility = () => {
+export const useModal = () => {
   const [showModal, setShowModal] = useState(false)
   const handleShowModal = () => {
     setShowModal(true)

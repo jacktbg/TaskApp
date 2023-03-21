@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client"
 
 export const GET_TASKS = gql`
-  query getTasks($taskStatus: Status!) {
-    tasks(input: { status: $taskStatus }) {
+  query getTasks($status: Status!) {
+    tasks(input: { status: $status }) {
       assignee {
         avatar
         id

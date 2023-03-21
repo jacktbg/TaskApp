@@ -1,11 +1,11 @@
 import {
   CREATE_TASK,
   GET_TASKS,
-} from "./Queries/TasksQueries"
+} from "../Services/TasksQueries"
 import { useMutation } from "@apollo/client"
 import { useState } from "react"
 
-export const CreateTask = (func) => {
+export const useCreateTask = (func) => {
   const [name, setName] = useState("")
   const [pointEstimate, setPointEstimate] = useState("")
   const [assigneeId, setAssigneeId] = useState("")
@@ -25,18 +25,26 @@ export const CreateTask = (func) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    createTask({
-      variables: {
-        input: {
-          name,
-          pointEstimate,
-          assigneeId,
-          tags,
-          dueDate,
-          status,
+    if (
+      name &&
+      pointEstimate &&
+      assigneeId &&
+      tags.length > 0 &&
+      dueDate
+    ) {
+      createTask({
+        variables: {
+          input: {
+            name,
+            pointEstimate,
+            assigneeId,
+            tags,
+            dueDate,
+            status,
+          },
         },
-      },
-    })
+      })
+    }
   }
   return {
     setName,

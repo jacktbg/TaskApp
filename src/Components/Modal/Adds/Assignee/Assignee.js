@@ -1,13 +1,13 @@
 import "./assignee.css"
 import person from "../../Images/Person.svg"
 import { AssigneeModal } from "./Modal/AssigneeModal"
-import { ModalUtility } from "../../../../Utilities/ModalUtility"
+import { useModal } from "../../../../Hooks/useModal"
 import { useState } from "react"
 import { ShorterName } from "../../../../Utilities/ShorterName"
 
 export const Assignee = ({ setAssigneeId }) => {
   const { showModal, handleShowModal, handleCloseModal } =
-    ModalUtility()
+    useModal()
   const [image, setImage] = useState("")
   const [name, setName] = useState("")
   return (

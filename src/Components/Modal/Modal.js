@@ -2,7 +2,7 @@ import "./modal.css"
 import { Input } from "./Input/Input"
 import { Adds } from "./Adds/Adds"
 import { Buttons } from "./Buttons/Buttons"
-import { CreateTask } from "../../Services/CreateTask"
+import { useCreateTask } from "../../Hooks/useCreateTask"
 
 export const Modal = ({ handleCloseModal }) => {
   const {
@@ -12,7 +12,7 @@ export const Modal = ({ handleCloseModal }) => {
     setTags,
     setDueDate,
     handleSubmit,
-  } = CreateTask(handleCloseModal)
+  } = useCreateTask(handleCloseModal)
 
   return (
     <div className="Modal">

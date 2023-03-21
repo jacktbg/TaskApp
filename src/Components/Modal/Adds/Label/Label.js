@@ -1,12 +1,12 @@
 import "./label.css"
 import tag from "../../Images/Tag.svg"
-import { ModalUtility } from "../../../../Utilities/ModalUtility"
+import { useModal } from "../../../../Hooks/useModal"
 import { LabelModal } from "./Modal/LabelModal"
 import { useState } from "react"
 
 export const Label = ({ setTags }) => {
   const { showModal, handleCloseModal, handleShowModal } =
-    ModalUtility()
+    useModal()
   const [name, setName] = useState([])
   return (
     <div className="Label">

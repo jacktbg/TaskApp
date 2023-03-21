@@ -1,5 +1,5 @@
 import "./assigneeModal.css"
-import { GET_USERS } from "../../../../../Services/Queries/UserQueries"
+import { GET_USERS } from "../../../../../Services/UserQueries"
 import { useQuery } from "@apollo/client"
 import { ShorterName } from "../../../../../Utilities/ShorterName"
 

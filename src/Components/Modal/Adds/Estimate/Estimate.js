@@ -1,13 +1,13 @@
 import "./estimate.css"
 import estimate from "../../Images/Estimate.svg"
 import { EstimateModal } from "./Modal/EstimateModal"
-import { ModalUtility } from "../../../../Utilities/ModalUtility"
+import { useModal } from "../../../../Hooks/useModal"
 import { useState } from "react"
 import { StringToNumber } from "../../../../Utilities/StringToNumberUtility"
 
 export const Estimate = ({ setPointEstimate }) => {
   const { showModal, handleShowModal, handleCloseModal } =
-    ModalUtility()
+    useModal()
   const [pointText, setPointText] = useState("")
   return (
     <div className="Estimate">
