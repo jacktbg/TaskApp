@@ -1,0 +1,16 @@
+.UpdateTaskStatus {
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+}
+
+.UpdateTaskStatus > button {
+  cursor: pointer;
+  width: 100%;
+  background: transparent;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.75px;
+  color: #ffffff;
+  text-align: right;
+}

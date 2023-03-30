@@ -1,0 +1,19 @@
+.UpdateTaskHeader {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.UpdateTaskHeader input {
+  width: 75%;
+  background: transparent;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.75px;
+  color: #ffffff;
+}
+.UpdateTaskHeader input::placeholder {
+  color: #94979a;
+}
+.UpdateTaskHeader input:focus::placeholder {
+  color: transparent;
+}

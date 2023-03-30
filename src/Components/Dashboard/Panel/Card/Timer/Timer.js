@@ -1,9 +1,9 @@
 import "./timer.css"
 import clock from "../Images/Clock.svg"
 import { StringToNumber } from "../../../../../Utilities/StringToNumberUtility"
+import { DateShorter } from "../../../../../Utilities/DateShorter"
 
 export const Timer = ({ points, date }) => {
-  const keyWord = "T"
   return (
     <div className="Timer">
       <p className="points">
@@ -11,8 +11,7 @@ export const Timer = ({ points, date }) => {
       </p>
       <div className="clock">
         <img src={clock} alt="clock" />
-        {/* because I receive the all datatime, and just need the yyyy/mm/dd */}
-        <p>{date.split(keyWord)[0]}</p>
+        <p>{DateShorter(date)}</p>
       </div>
     </div>
   )

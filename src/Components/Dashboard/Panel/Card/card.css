@@ -1,11 +1,6 @@
 .Card {
   display: flex;
   flex-direction: column;
-  overflow: scroll;
-}
-.card-container {
-  display: flex;
-  flex-direction: column;
   background: #2c2f33;
   border-radius: 8px;
   width: 348px;

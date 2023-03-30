@@ -1,10 +1,10 @@
-import "./estimateModal.css"
+import "./updateTaskEstimateModal.css"
 import estimate from "../../../Images/Estimate.svg"
 import { GET_POINT_ESTIMATE } from "../../../../../Services/ValuesQueries"
 import { useQuery } from "@apollo/client"
 import { StringToNumber } from "../../../../../Utilities/StringToNumberUtility"
 
-export const EstimateModal = ({
+export const UpdateTaskEstimateModal = ({
   handleCloseModal,
   setPointEstimate,
   setPointText,

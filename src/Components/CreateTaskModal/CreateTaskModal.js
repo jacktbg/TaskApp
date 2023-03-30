@@ -1,10 +1,10 @@
-import "./modal.css"
+import "./createTaskModal.css"
 import { Input } from "./Input/Input"
 import { Adds } from "./Adds/Adds"
 import { Buttons } from "./Buttons/Buttons"
 import { useCreateTask } from "../../Hooks/useCreateTask"
 
-export const Modal = ({ handleCloseModal }) => {
+export const CreateTaskModal = ({ handleCloseModal }) => {
   const {
     setName,
     setPointEstimate,

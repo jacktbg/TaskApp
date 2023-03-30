@@ -2,9 +2,12 @@ import "./info.css"
 import menu from "../Images/ThreePoints.svg"
 import { Menu } from "../../../../Menu/Menu"
 import { useModal } from "../../../../../Hooks/useModal"
-export const Info = ({ name, id }) => {
+
+export const Info = ({ task }) => {
   const { showModal, handleShowModal, handleCloseModal } =
     useModal()
+
+  const name = task.name
   return (
     <div className="Info">
       <p>{name}</p>
@@ -16,7 +19,10 @@ export const Info = ({ name, id }) => {
         <img src={menu} alt="three points menu" />
       </button>
       {showModal && (
-        <Menu handleCloseModal={handleCloseModal} id={id} />
+        <Menu
+          handleCloseMenu={handleCloseModal}
+          task={task}
+        />
       )}
     </div>
   )

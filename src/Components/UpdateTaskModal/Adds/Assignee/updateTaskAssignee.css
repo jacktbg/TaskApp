@@ -1,0 +1,30 @@
+.uta-button,
+.uta-focused {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 16px 4px 16px;
+  gap: 0 8px;
+  align-items: center;
+  height: 100%;
+  border-radius: 4px;
+}
+.uta-focused {
+  background: transparent;
+}
+.uta-img {
+  width: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+.uta-person {
+  width: 16px;
+  height: 21px;
+}
+.UpdateTaskAssignee > button > p {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.75px;
+  margin-top: 5%;
+  white-space: nowrap;
+}

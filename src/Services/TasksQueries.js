@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client"
 
 export const GET_TASKS = gql`
-  query getTasks($status: Status!) {
-    tasks(input: { status: $status }) {
+  query getTasks($input: FilterTaskInput!) {
+    tasks(input: $input) {
       assignee {
         avatar
         id
@@ -48,10 +48,12 @@ export const DELETE_TASK = gql`
   }
 `
 
-export const UpdateTaskInput = gql`
+export const UPDATE_TASK = gql`
   mutation updateTask($input: UpdateTaskInput!) {
     updateTask(input: $input) {
-      assigneeId
+      assignee {
+        id
+      }
       dueDate
       id
       name

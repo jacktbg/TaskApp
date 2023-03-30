@@ -1,0 +1,42 @@
+.AssigneeModal {
+  margin-top: 8px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0px 0px;
+  width: 239px;
+  background: #393d41;
+  border: 1px solid #94979a;
+  border-radius: 8px;
+}
+.AssigneeModal > p {
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.75px;
+  margin-left: 16px;
+  color: #94979a;
+}
+.AssigneeModal button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 16px;
+  gap: 8px;
+  width: 239px;
+  height: 56px;
+  background-color: transparent;
+}
+
+.AssigneeModal button > img {
+  height: 32px;
+  width: 32px;
+}
+.AssigneeModal button > p {
+  width: 167px;
+  height: 24px;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.75px;
+  color: #ffffff;
+  text-align: left;
+}

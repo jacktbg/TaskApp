@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Dashboard } from "../../Components/Dashboard/Dashboard"
 import { Sidebar } from "../../Components/Sidebar/Sidebar"
 import { Searchbar } from "../../Components/Searchbar/Searchbar"
-import { Modal } from "../../Components/Modal/Modal"
+import { CreateTaskModal } from "../../Components/CreateTaskModal/CreateTaskModal"
 import { useModal } from "../../Hooks/useModal"
 
 export const Home = () => {
@@ -27,7 +27,9 @@ export const Home = () => {
         handleShowModal={handleShowModal}
       />
       {showModal && (
-        <Modal handleCloseModal={handleCloseModal} />
+        <CreateTaskModal
+          handleCloseModal={handleCloseModal}
+        />
       )}
     </div>
   )
