@@ -2,7 +2,7 @@
   "name": "ravn",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jacktbg.github.io/TaskApp",
+  "homepage": "https://jacktbg.github.io/TaskApp/",
   "dependencies": {
     "@apollo/client": "^3.7.9",
     "@testing-library/jest-dom": "^5.16.5",

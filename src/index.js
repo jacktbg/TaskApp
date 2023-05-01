@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(
 )
 
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/TaskApp">
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>
