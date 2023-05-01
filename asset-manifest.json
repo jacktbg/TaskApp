@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/TaskApp/static/css/main.f6e7f1ef.css",
-    "main.js": "/TaskApp/static/js/main.70a515dd.js",
+    "main.js": "/TaskApp/static/js/main.52b1abb2.js",
     "static/media/Profile.svg": "/TaskApp/static/media/Profile.082a8ab2640cb3cce59aee0cbf67d43e.svg",
     "static/media/Clip.svg": "/TaskApp/static/media/Clip.13c9660eefa4fe2f487e7a42b41c017f.svg",
     "static/media/Clock.svg": "/TaskApp/static/media/Clock.9074aa2082c53827edc238694c5ba818.svg",
@@ -25,10 +25,10 @@
     "static/media/List.svg": "/TaskApp/static/media/List.d39fb40923d60ea045f03835dbf662de.svg",
     "static/media/Plus.svg": "/TaskApp/static/media/Plus.e1fbea545d98512118bf05bea844c97c.svg",
     "main.f6e7f1ef.css.map": "/TaskApp/static/css/main.f6e7f1ef.css.map",
-    "main.70a515dd.js.map": "/TaskApp/static/js/main.70a515dd.js.map"
+    "main.52b1abb2.js.map": "/TaskApp/static/js/main.52b1abb2.js.map"
   },
   "entrypoints": [
     "static/css/main.f6e7f1ef.css",
-    "static/js/main.70a515dd.js"
+    "static/js/main.52b1abb2.js"
   ]
 }
