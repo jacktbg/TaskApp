@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/TaskApp/static/css/main.f6e7f1ef.css",
+    "main.js": "/TaskApp/static/js/main.70a515dd.js",
+    "static/media/Profile.svg": "/TaskApp/static/media/Profile.082a8ab2640cb3cce59aee0cbf67d43e.svg",
+    "static/media/Clip.svg": "/TaskApp/static/media/Clip.13c9660eefa4fe2f487e7a42b41c017f.svg",
+    "static/media/Clock.svg": "/TaskApp/static/media/Clock.9074aa2082c53827edc238694c5ba818.svg",
+    "static/media/Tag.svg": "/TaskApp/static/media/Tag.cb68855529e2ba12fdea7543f68e595e.svg",
+    "static/media/Chart.svg": "/TaskApp/static/media/Chart.93622a850cb6a84c3345055e3b71e251.svg",
+    "static/media/Coment.svg": "/TaskApp/static/media/Coment.8fe84b6a52c2cc2906154eeb8309e71c.svg",
+    "static/media/Person.svg": "/TaskApp/static/media/Person.3ea84d5e06c76c42a06c10c8eee8298f.svg",
+    "static/media/Calendar.svg": "/TaskApp/static/media/Calendar.74ef026ae7a71f8714bb496406136fa4.svg",
+    "static/media/Pencil.svg": "/TaskApp/static/media/Pencil.107dba32a3e5b90ae41c680083b48f69.svg",
+    "static/media/Lens.svg": "/TaskApp/static/media/Lens.1f053204a3282b38ac1499e3516b700c.svg",
+    "static/media/Estimate.svg": "/TaskApp/static/media/Estimate.a2e6bad07d24994961dc460b95526437.svg",
+    "static/media/Bell.svg": "/TaskApp/static/media/Bell.13034d331e1d253d521638a759f6a425.svg",
+    "static/media/Logo.svg": "/TaskApp/static/media/Logo.ea6c64b1b78d1db57c206e58b9106718.svg",
+    "index.html": "/TaskApp/index.html",
+    "static/media/Trash.svg": "/TaskApp/static/media/Trash.18bb0ea5514dc64e37c323f965650a15.svg",
+    "static/media/ThreePoints.svg": "/TaskApp/static/media/ThreePoints.417fab815df960e92c24fcb33b621996.svg",
+    "static/media/Dashboard.svg": "/TaskApp/static/media/Dashboard.fe6a83e7bcec4f482da5f2e973dd3d04.svg",
+    "static/media/Square.svg": "/TaskApp/static/media/Square.e2949e186f70b1147f26b49418880a69.svg",
+    "static/media/Punto.svg": "/TaskApp/static/media/Punto.2dbb5ef57a14efbf5272549cadca2b59.svg",
+    "static/media/Task.svg": "/TaskApp/static/media/Task.87511b1e63dc26ad3dd1a83172e22ea3.svg",
+    "static/media/List.svg": "/TaskApp/static/media/List.d39fb40923d60ea045f03835dbf662de.svg",
+    "static/media/Plus.svg": "/TaskApp/static/media/Plus.e1fbea545d98512118bf05bea844c97c.svg",
+    "main.f6e7f1ef.css.map": "/TaskApp/static/css/main.f6e7f1ef.css.map",
+    "main.70a515dd.js.map": "/TaskApp/static/js/main.70a515dd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f6e7f1ef.css",
+    "static/js/main.70a515dd.js"
+  ]
+}
