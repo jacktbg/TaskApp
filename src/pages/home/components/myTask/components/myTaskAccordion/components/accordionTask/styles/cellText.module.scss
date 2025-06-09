@@ -1,0 +1,12 @@
+.text {
+  font-weight: 400;
+  font-size: clamp(15px, 1.042vw, 30rem);
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  display: block;
+  align-items: center;
+  color: var(--color-neutral-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

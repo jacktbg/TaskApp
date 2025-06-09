@@ -1,0 +1,45 @@
+.plusContainer {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2.5rem, 2.778vw, 10rem);
+  aspect-ratio: 1 / 1;
+  border-radius: clamp(0.5rem, 0.556vw, 4rem);
+  background: var(--color-primary-4);
+
+  .plus {
+    width: clamp(14px, 0.973vw, 10rem);
+    aspect-ratio: 1 / 1;
+    color: var(--color-neutral-1);
+  }
+}
+.plusMobileContainer {
+  display: none;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 900px) {
+  .plusContainer {
+    flex-direction: column;
+    margin-left: 0;
+    justify-content: start;
+    width: auto;
+    height: 100%;
+    border-radius: 0;
+    background: transparent;
+
+    .plus {
+      display: none;
+    }
+    .plusMobile {
+      display: flex;
+    }
+  }
+}

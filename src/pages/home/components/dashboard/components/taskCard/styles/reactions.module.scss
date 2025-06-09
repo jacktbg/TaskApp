@@ -1,0 +1,8 @@
+.reactions {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: clamp(2rem, 2.223vw, 10rem);
+  justify-content: space-between;
+  align-items: center;
+}

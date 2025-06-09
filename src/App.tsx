@@ -3,6 +3,7 @@ import { ErrorBoundary } from "react-error-boundary"
 import { logErrorToService } from "./utilities/errorHandler"
 import { NotFound } from "./pages/notFound/NotFound"
 import { Error } from "./pages/error/Error"
+import { Home } from "./pages/home/Home"
 
 export const App = () => {
   return (
@@ -12,6 +13,7 @@ export const App = () => {
     >
       <Routes>
         <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </ErrorBoundary>
   )

@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  flex-shrink: 0;
+  padding-left: clamp(1rem, 1.112vw, 30rem);
+  column-gap: clamp(4px, 0.278vw, 10rem);
+  height: clamp(3.5rem, 3.89vw, 300rem);
+  width: clamp(58rem, 76.945vw, 300rem);
+  background: var(--color-neutral-4);
+  border: clamp(1px, 0.1vw, 10rem) solid
+    var(--color-neutral-3);
+  border-radius: clamp(4px, 0.278vw, 10rem)
+    clamp(4px, 0.278vw, 10rem) 0 0;
+}
+
+.iconWrapper {
+  width: clamp(1.5rem, 1.667vw, 30rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icon {
+    width: 0.834vw;
+    color: var(--color-neutral-2);
+  }
+}
+
+.title {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  font-weight: 600;
+  font-size: clamp(18px, 1.25vw, 30rem);
+  line-height: 32px;
+  letter-spacing: 0.75px;
+  color: var(--color-neutral-1);
+  text-transform: capitalize;
+  white-space-collapse: preserve;
+
+  .counter {
+    color: var(--color-neutral-2);
+  }
+}

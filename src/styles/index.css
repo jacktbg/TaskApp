@@ -1,80 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* Import Fonts */
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
 
-table,
-tr,
-td,
-th {
-  all: unset
-}
-
-* {
+/* Global Reset & Normalization */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
   border: 0;
   outline: 0;
   scroll-behavior: smooth;
-  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  font-family: "SF Pro Display", sans-serif;
 }
 
-:root {
-  
+/* Set base font-size and background */
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+  background-color: black;
 }
 
-[data-theme="dark"] {
-}
-
-html,
 body {
   z-index: 0;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
-  -webkit-appearance: none;
-}
-
-html {
-  font-size: 62.5%;
-  overflow-x: hidden;
-}
-
-button {
-  cursor: pointer;
-}
-
-ol {
-  list-style-type: none;
-}
-
-ul {
-  list-style-type: none;
-}
-
+/* Basic element resets */
 a {
   text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
 }
 
 textarea {
   resize: none;
 }
 
+button {
+  cursor: pointer;
+}
 
+/* Input normalizations */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  margin: 0;
+  display: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Optional: reset tables if needed */
 table,
 tr,
 td,
 th {
-  display: block
+  all: unset;
+  box-sizing: border-box;
+}
+
+/* Theme variables */
+:root {
+  --color-neutral-1: #ffffff;
+  --color-neutral-2: #94979a;
+  --color-neutral-2-transparent: rgba(148, 151, 154, 0.1);
+  --color-neutral-3: #393d41;
+  --color-neutral-4: #2c2f33;
+  --color-neutral-5: #222528;
+
+  --color-primary-1: #f4ccc8;
+  --color-primary-2: #eba59e;
+  --color-primary-3: #e27d73;
+  --color-primary-4: #da584b;
+
+  --color-secondary-1: #c8e1bc;
+  --color-secondary-2: #aad199;
+  --color-secondary-3: #8dc275;
+  --color-secondary-4: #70b252;
+
+  --color-tertiary-1: #f9eed7;
+  --color-tertiary-2: #f2daab;
+  --color-tertiary-3: #ebc77f;
+  --color-tertiary-4: #e5b454;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
 }

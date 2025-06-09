@@ -1,0 +1,6 @@
+.taskContainer {
+  display: flex;
+  height: clamp(3.5rem, 3.89vw, 300rem);
+  width: clamp(58rem, 76.945vw, 300rem);
+  background: var(--color-neutral-4);
+}

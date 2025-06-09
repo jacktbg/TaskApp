@@ -1,0 +1,14 @@
+.tags {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: clamp(2rem, 2.223vw, 10rem);
+  column-gap: clamp(0.5rem, 0.556vw, 10rem);
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+}

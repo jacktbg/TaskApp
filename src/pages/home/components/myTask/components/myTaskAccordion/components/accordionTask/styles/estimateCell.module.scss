@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  padding: 0 clamp(0.5rem, 0.556vw, 10rem);
+  width: clamp(8.75rem, 9.723vw, 300rem);
+  border: clamp(1px, 0.1vw, 10rem) solid
+    var(--color-neutral-3);
+  border-top: none;
+  border-right: none;
+}

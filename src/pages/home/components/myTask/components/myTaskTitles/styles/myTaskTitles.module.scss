@@ -1,0 +1,10 @@
+.titlesContainer {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+
+  * {
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,173 @@
+.wrapper {
+  box-sizing: border-box;
+  position: absolute;
+  top: clamp(7rem, 7.778vw, 100rem);
+  left: clamp(23.75rem, 26.39vw, 100rem);
+  width: clamp(17.5rem, 19.445vw, 300rem);
+  background: var(--color-neutral-5);
+  color: var(--color-neutral-1);
+  border: 0.1vw solid var(--color-neutral-2);
+  border-radius: clamp(4px, 0.278vw, 10rem);
+  display: flex;
+  flex-direction: column;
+
+  :global {
+    .react-datepicker__month-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .react-datepicker__aria-live {
+      display: none;
+    }
+
+    .react-datepicker__day-names {
+      display: flex;
+      padding: 0 clamp(12px, 0.834vw, 10rem);
+      padding-top: clamp(8px, 0.556vw, 10rem);
+    }
+
+    .react-datepicker__day-name {
+      flex: 1;
+      height: clamp(30px, 2.084vw, 10rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: default;
+    }
+
+    .react-datepicker__month {
+      display: flex;
+      flex-direction: column;
+      padding: 0 clamp(12px, 0.834vw, 10rem);
+      padding-bottom: clamp(8px, 0.556vw, 10rem);
+    }
+    .react-datepicker__week {
+      display: flex;
+      flex-direction: row;
+    }
+    .react-datepicker__day {
+      font-weight: 400;
+      font-size: clamp(14px, 0.973vw, 20rem);
+      line-height: 22px;
+      letter-spacing: 0%;
+      cursor: pointer;
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: clamp(30px, 2.084vw, 10rem);
+      color: var(--color-neutral-1);
+      z-index: 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: clamp(24px, 1.667vw, 9rem);
+        aspect-ratio: 1 / 1;
+        background: transparent;
+        transition: background 0.2s ease;
+        z-index: -1;
+      }
+
+      &:hover::after {
+        background: var(--color-primary-4);
+      }
+    }
+    .react-datepicker__day--outside-month {
+      color: var(--color-neutral-2);
+    }
+    .react-datepicker__today-button {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: clamp(40px, 2.778vw, 30rem);
+      width: 100%;
+      font-weight: 400;
+      font-size: clamp(14px, 0.973vw, 20rem);
+      line-height: 22px;
+      letter-spacing: 0%;
+      color: var(--color-primary-4);
+      border-top: 0.1vw solid var(--color-neutral-2);
+    }
+
+    .react-datepicker__day--today {
+      position: relative;
+      z-index: 0;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: clamp(24px, 1.667vw, 9rem);
+        aspect-ratio: 1 / 1;
+        background: transparent;
+        border: clamp(1px, 0.1vw, 10rem) solid
+          var(--color-primary-4);
+        border-radius: clamp(2px, 0.14vw, 10rem);
+        z-index: -1;
+      }
+    }
+  }
+}
+
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: clamp(40px, 2.778vw, 30rem);
+  font-weight: 600;
+  font-size: clamp(14px, 0.973vw, 20rem);
+  line-height: 22px;
+  letter-spacing: 0%;
+  padding: 0 clamp(8px, 0.556vw, 30rem);
+  border-bottom: 0.1vw solid var(--color-neutral-2);
+
+  .nav-button {
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: clamp(36px, 2.5vw, 10rem);
+    height: clamp(1rem, 1.112vw, 10rem);
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+
+  .current-month {
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-neutral-1);
+  width: clamp(1rem, 1.112vw, 10rem);
+
+  .arrowIcon {
+    width: clamp(7.44px, 0.518vw, 10rem);
+  }
+
+  .doubleArrowIcon {
+    width: clamp(10.38px, 0.722vw, 10rem);
+  }
+}
+
+.prev-button .arrowIcon,
+.prev-button .doubleArrowIcon {
+  transform: rotate(180deg);
+}

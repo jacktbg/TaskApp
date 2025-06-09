@@ -1,0 +1,15 @@
+.counter {
+  background-color: var(--color-neutral-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(3.25rem, 3.612vw, 30rem);
+  height: clamp(2rem, 2.223vw, 30rem);
+  .bold {
+    font-weight: 600;
+  }
+}
+.arrow {
+  background: transparent;
+  fill: var(--color-neutral-1);
+}
