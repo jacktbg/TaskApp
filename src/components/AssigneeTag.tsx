@@ -5,9 +5,6 @@ import { useState } from "react"
 import { Popover } from "radix-ui"
 
 export const AssigneeTag = () => {
-  const [showOptions, setShowOptions] =
-    useState<boolean>(false)
-
   const [value, setValue] = useState<string>("")
   const [image, setImage] = useState<string>("")
 
@@ -20,7 +17,6 @@ export const AssigneeTag = () => {
               ? `${styles.assigneeButton} ${styles.active}`
               : styles.assigneeButton
           }
-          onClick={() => setShowOptions((prev) => !prev)}
         >
           {image ? (
             <img
@@ -44,7 +40,6 @@ export const AssigneeTag = () => {
       <Popover.Portal>
         <Popover.Content>
           <AssigneeTagOptions
-            setShowOptions={setShowOptions}
             setValue={setValue}
             setImage={setImage}
           />

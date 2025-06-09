@@ -9,16 +9,13 @@ const options: string[] = [
 ]
 
 interface AssigneeTagOptionsProps {
-  setShowOptions: React.Dispatch<
-    React.SetStateAction<boolean>
-  >
   setValue: (option: string) => void
   setImage: (option: string) => void
 }
 
 export const AssigneeTagOptions: React.FC<
   AssigneeTagOptionsProps
-> = ({ setShowOptions, setValue, setImage }) => {
+> = ({ setValue, setImage }) => {
   return (
     <div className={styles.options}>
       <h3 className={styles.title}>Assign too</h3>
@@ -28,7 +25,6 @@ export const AssigneeTagOptions: React.FC<
             key={i}
             onClick={() => {
               setValue(option)
-              setShowOptions((prev) => !prev)
               setImage(profile)
             }}
             className={styles.option}
