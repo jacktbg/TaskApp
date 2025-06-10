@@ -12,7 +12,11 @@ import {
   GET_MY_TASK,
   GET_TASKS,
 } from "../../../../../../../services/queries"
-import { useTabStore } from "../../../../../../../store/useStore"
+import {
+  useFilterStore,
+  useTabStore,
+  useUserStore,
+} from "../../../../../../../store/useStore"
 
 interface MenuDotsProps {
   task: Task
@@ -22,6 +26,8 @@ export const MenuDots: React.FC<MenuDotsProps> = ({
   task,
 }) => {
   const activeTab = useTabStore((state) => state.activeTab)
+  const filters = useFilterStore((state) => state.filters)
+  const id = useUserStore((state) => state.id)
 
   const [deleteTask] = useMutation(DELETE_TASK_MUTATION, {
     variables: { input: { id: task.id } },
@@ -30,7 +36,10 @@ export const MenuDots: React.FC<MenuDotsProps> = ({
         query:
           activeTab === "all" ? GET_TASKS : GET_MY_TASK,
         variables: {
-          input: {},
+          input:
+            activeTab === "all"
+              ? { ...filters }
+              : { ...filters, assigneeId: id },
         },
       },
     ],

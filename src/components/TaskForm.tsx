@@ -14,8 +14,10 @@ import { LabelTag } from "./LabelTag"
 import { Dialog } from "radix-ui"
 import { GET_MY_TASK, GET_TASKS } from "../services/queries"
 import {
+  useFilterStore,
   useTabStore,
   useTaskStore,
+  useUserStore,
 } from "../store/useStore"
 import { useEffect } from "react"
 import { XIcon } from "../pages/home/icons/Icons"
@@ -68,6 +70,8 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     (state) => state.currentTask
   )
   const activeTab = useTabStore((state) => state.activeTab)
+  const filters = useFilterStore((state) => state.filters)
+  const id = useUserStore((state) => state.id)
   const mode = useTaskStore((state) => state.mode)
 
   const {
@@ -105,9 +109,13 @@ export const TaskForm: React.FC<TaskFormProps> = ({
   const [createTask] = useMutation(CREATE_TASK_MUTATION, {
     refetchQueries: [
       {
-        query: GET_TASKS,
+        query:
+          activeTab === "all" ? GET_TASKS : GET_MY_TASK,
         variables: {
-          input: {},
+          input:
+            activeTab === "all"
+              ? { ...filters }
+              : { ...filters, assigneeId: id },
         },
       },
     ],
@@ -132,7 +140,10 @@ export const TaskForm: React.FC<TaskFormProps> = ({
         query:
           activeTab === "all" ? GET_TASKS : GET_MY_TASK,
         variables: {
-          input: {},
+          input:
+            activeTab === "all"
+              ? { ...filters }
+              : { ...filters, assigneeId: id },
         },
       },
     ],

@@ -10,5 +10,8 @@
 }
 
 .hand {
+  flex: 1;
   cursor: grab;
+  width: auto;
+  height: fit-content;
 }

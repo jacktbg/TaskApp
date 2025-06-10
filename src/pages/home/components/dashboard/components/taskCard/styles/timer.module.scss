@@ -1,6 +1,7 @@
 .timer {
   cursor: default;
   display: flex;
+  flex-shrink: 0;
   flex-direction: row;
   width: 100%;
   height: clamp(2rem, 2.223vw, 30rem);

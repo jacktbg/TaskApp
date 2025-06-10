@@ -34,16 +34,17 @@ export const TaskCard = React.memo(
       <td ref={setNodeRef} style={style}>
         <div className={styles.taskCard}>
           <ProjectInfo name={name} task={task} />
+
+          <Timer
+            pointEstimate={pointEstimate}
+            dueDate={dueDate}
+          />
+          <Tags tags={tags} />
           <div
             className={styles.hand}
             {...listeners}
             {...attributes}
           >
-            <Timer
-              pointEstimate={pointEstimate}
-              dueDate={dueDate}
-            />
-            <Tags tags={tags} />
             <Reactions user={assignee} />
           </div>
         </div>
