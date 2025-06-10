@@ -48,7 +48,7 @@
       width: clamp(1.5rem, 1.667vw, 10rem);
 
       .icon {
-        width: 1.389vw;
+        width: clamp(20px, 1.389vw, 10rem);
       }
     }
     .label {

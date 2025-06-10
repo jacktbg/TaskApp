@@ -72,6 +72,9 @@
   .cancel {
     width: clamp(4rem, 4.445vw, 30rem);
     background: transparent;
+    .text {
+      background: transparent;
+    }
   }
   .create {
     width: clamp(3.875rem, 4.306vw, 30rem);
@@ -81,7 +84,11 @@
       background: var(--color-primary-4);
     }
   }
+  .iconWrapper {
+    display: none;
+  }
 }
+
 @media screen and (max-width: 900px) {
   .form {
     position: fixed;
@@ -140,6 +147,9 @@
       left: 10px;
       width: clamp(4rem, 4.445vw, 10rem);
       background: transparent;
+      .text {
+        display: none;
+      }
     }
     .create {
       top: 30px;
@@ -149,6 +159,13 @@
 
       &.active {
         background: var(--color-primary-4);
+      }
+    }
+    .iconWrapper {
+      display: flex;
+      width: clamp(2rem, 2.223vw, 10rem);
+      .xIcon {
+        width: clamp(12.73px, 1.223vw, 10rem);
       }
     }
   }

@@ -15,6 +15,7 @@ import { Dialog } from "radix-ui"
 import { GET_TASKS } from "../services/queries"
 import { useTaskStore } from "../store/useStore"
 import { useEffect } from "react"
+import { XIcon } from "../pages/home/icons/Icons"
 
 type TaskFormProps = {
   setOpen: (boolean: boolean) => void
@@ -25,11 +26,11 @@ const createTaskSchema = z.object({
     ["ZERO", "ONE", "TWO", "FOUR", "EIGHT"],
     {
       errorMap: () => ({
-        message: "Point Estimate is required",
+        message: "Estimate required",
       }),
     }
   ),
-  assigneeId: z.string().min(1, "Assignee is required"),
+  assigneeId: z.string().min(1, "Assignee required"),
   labels: z
     .array(
       z.enum([
@@ -40,7 +41,7 @@ const createTaskSchema = z.object({
         "REACT",
       ])
     )
-    .min(1, "At least one label is required"),
+    .min(1, "Label required"),
   dueDate: z.date().refine(
     (date) => {
       const today = new Date()
@@ -250,7 +251,10 @@ export const TaskForm: React.FC<TaskFormProps> = ({
       <div className={styles.buttons}>
         <Dialog.Close asChild>
           <button type="button" className={styles.cancel}>
-            Cancel
+            <p className={styles.text}>Cancel</p>
+            <div className={styles.iconWrapper}>
+              <XIcon className={styles.xIcon} />
+            </div>
           </button>
         </Dialog.Close>
         <button type="submit" className={styles.create}>
