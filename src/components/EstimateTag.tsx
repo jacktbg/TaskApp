@@ -2,17 +2,36 @@ import styles from "../styles/estimateTag.module.scss"
 import { Popover } from "radix-ui"
 import { EstimateIcon } from "../pages/home/icons/Icons"
 import { EstimateTagOptions } from "./EstimateTagOptions"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useTaskStore } from "../store/useStore"
+import { pointEstimateFormatter } from "../pages/home/utilities/pointEstimateFormatter"
 
-export const EstimateTag = () => {
-  const [value, setValue] = useState<string>("")
+interface EstimateTagProps {
+  estimate: string
+  setEstimate: (value: string) => void
+}
+
+export const EstimateTag: React.FC<EstimateTagProps> = ({
+  estimate,
+  setEstimate,
+}) => {
+  const task = useTaskStore((state) => state.currentTask)
+  const [label, setLabel] = useState<string>("")
+  useEffect(() => {
+    if (task) {
+      const formatted = pointEstimateFormatter(
+        task.pointEstimate
+      )
+      setLabel(`${formatted} Points`)
+    }
+  }, [task]) // React to changes in pointEstimate
 
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
         <button
           className={
-            value
+            estimate || label
               ? `${styles.estimateButton} ${styles.active}`
               : styles.estimateButton
           }
@@ -21,15 +40,18 @@ export const EstimateTag = () => {
             <EstimateIcon className={styles.estimateIcon} />
           </div>
           <h2 className={styles.label}>
-            {value || "Estimate"}
+            {label || "Estimate"}
           </h2>
         </button>
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Content side="bottom">
           <EstimateTagOptions
-            setValue={(option) => {
-              setValue(option)
+            setEstimate={(option) => {
+              setEstimate(option)
+            }}
+            setLabel={(option) => {
+              setLabel(option)
             }}
           />
         </Popover.Content>

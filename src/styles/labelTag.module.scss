@@ -11,7 +11,6 @@
   width: clamp(6.5rem, 7.223vw, 30rem);
 
   &.active {
-    width: fit-content;
     padding: 0 clamp(0.5rem, 0.556vw, 20rem);
   }
   .iconWrapper {
@@ -28,12 +27,27 @@
   }
 
   .label {
-    display: flex;
+    display: block;
     align-items: center;
     font-weight: 600;
     font-size: clamp(15px, 1.042vw, 30rem);
     line-height: 24px;
     letter-spacing: 0.75px;
     text-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .labelButton {
+    background: var(--color-neutral-2-transparent);
+    width: 100%;
+    flex-shrink: 0;
+    height: clamp(2rem, 2.223vw, 10rem);
+    justify-content: start;
+    padding-left: 1rem;
+    margin-top: 1rem;
   }
 }

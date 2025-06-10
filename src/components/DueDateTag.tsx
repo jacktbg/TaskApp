@@ -1,38 +1,37 @@
-import styles from "../styles/dueDate.module.scss"
+import styles from "../styles/dueDateTag.module.scss"
 import { DueDateIcon } from "../pages/home/icons/Icons"
-import { useState } from "react"
 import { DueDateTagOptions } from "./DueDateTagOptions"
+import { Popover } from "radix-ui"
 
-export const DueDateTag = () => {
-  const [startDate, setStartDate] = useState<Date | null>(
-    null
-  )
-  const [isOpen, setIsOpen] = useState(false)
+interface DueDateTagProps {
+  date: Date
+  setDate: (value: Date | null) => void
+}
 
-  const toggleDatePicker = () => setIsOpen(!isOpen)
+export const DueDateTag: React.FC<DueDateTagProps> = ({
+  date,
+  setDate,
+}) => {
   return (
-    <>
-      <button
-        className={styles.dueDateButton}
-        onClick={toggleDatePicker}
-      >
-        <div className={styles.iconWrapper}>
-          <DueDateIcon className={styles.dueDateIcon} />
-        </div>
-        <h2 className={styles.label}>
-          {startDate
-            ? startDate.toLocaleDateString()
-            : "Due date"}
-        </h2>
-      </button>
-
-      {isOpen && (
-        <DueDateTagOptions
-          startDate={startDate}
-          setStartDate={setStartDate}
-          setIsOpen={setIsOpen}
-        />
-      )}
-    </>
+    <Popover.Root>
+      <Popover.Trigger asChild>
+        <button className={styles.dueDateButton}>
+          <div className={styles.iconWrapper}>
+            <DueDateIcon className={styles.dueDateIcon} />
+          </div>
+          <h2 className={styles.label}>
+            {date ? date.toLocaleDateString() : "Due date"}
+          </h2>
+        </button>
+      </Popover.Trigger>
+      <Popover.Portal>
+        <Popover.Content side="bottom">
+          <DueDateTagOptions
+            startDate={date}
+            setStartDate={setDate}
+          />
+        </Popover.Content>
+      </Popover.Portal>
+    </Popover.Root>
   )
 }

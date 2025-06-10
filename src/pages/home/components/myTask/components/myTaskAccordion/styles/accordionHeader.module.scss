@@ -17,10 +17,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  .icon {
-    width: 0.834vw;
-    color: var(--color-neutral-2);
+.icon {
+  width: clamp(12px, 0.834vw, 10rem);
+
+  color: var(--color-neutral-2);
+
+  &.collapse {
+    transform: rotate(-90deg);
   }
 }
 

@@ -1,14 +1,16 @@
 import styles from "../styles/reactions.module.scss"
 import { ReactionsIcons } from "../../../../ui/ReactionsIcons"
 import { ProfileImage } from "../../../../ui/ProfileImage"
+import type { User } from "../../../../../models/taskProps"
 
 interface ReactionsProps {
-  avatar: string
+  user: User
 }
 
 export const Reactions: React.FC<ReactionsProps> = ({
-  avatar,
+  user,
 }) => {
+  const { avatar } = user
   return (
     <div className={styles.reactions}>
       <ProfileImage avatar={avatar} />

@@ -1,52 +1,60 @@
 import styles from "../styles/labelTag.module.scss"
 import { LabelIcon } from "../pages/home/icons/Icons"
-import { useState } from "react"
 import { LabelTagOptions } from "./LabelTagOptions"
+import { Popover } from "radix-ui"
 
-export const LabelTag = () => {
-  const [showOptions, setShowOptions] = useState(false)
-  const [value, setValue] = useState<string[]>([])
+interface LabelTagProps {
+  label: string[]
+  setLabel: (value: string[]) => void
+}
 
+export const LabelTag: React.FC<LabelTagProps> = ({
+  label,
+  setLabel,
+}) => {
   const toggleOption = (option: string) => {
-    setValue((prev) =>
-      prev.includes(option)
-        ? prev.filter((tag) => tag !== option)
-        : [...prev, option]
-    )
+    const updated = label.includes(option)
+      ? label.filter((tag) => tag !== option)
+      : [...label, option]
+
+    setLabel(updated)
   }
 
   return (
-    <>
-      <button
-        className={
-          value.length
-            ? `${styles.labelButton} ${styles.active}`
-            : styles.labelButton
-        }
-        onClick={() => setShowOptions((prev) => !prev)}
-      >
-        {!value.length && (
-          <div className={styles.iconWrapper}>
-            <LabelIcon className={styles.labelIcon} />
-          </div>
-        )}
-        <h2
+    <Popover.Root>
+      <Popover.Trigger asChild>
+        <button
           className={
-            value.length
-              ? `${styles.label} ${styles.active}`
-              : styles.label
+            label.length
+              ? `${styles.labelButton} ${styles.active}`
+              : styles.labelButton
           }
         >
-          {value.length > 0 ? value.join("|") : "Label"}
-        </h2>
-      </button>
-
-      {showOptions && (
-        <LabelTagOptions
-          value={value}
-          setValue={toggleOption}
-        />
-      )}
-    </>
+          {!label.length && (
+            <div className={styles.iconWrapper}>
+              <LabelIcon className={styles.labelIcon} />
+            </div>
+          )}
+          <h2
+            className={
+              label.length
+                ? `${styles.label} ${styles.active}`
+                : styles.label
+            }
+          >
+            {label.length > 0 ? label.join("|") : "Label"}
+          </h2>
+        </button>
+      </Popover.Trigger>
+      <Popover.Anchor />
+      <Popover.Portal>
+        <Popover.Content>
+          <LabelTagOptions
+            label={label}
+            setLabel={toggleOption}
+          />
+        </Popover.Content>
+      </Popover.Portal>
+    </Popover.Root>
   )
 }

@@ -1,19 +1,37 @@
-import styles from "../styles/assignee.module.scss"
+import styles from "../styles/assigneeTag.module.scss"
 import { AssigneeIcon } from "../pages/home/icons/Icons"
 import { AssigneeTagOptions } from "./AssigneeTagOptions"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Popover } from "radix-ui"
+import { useTaskStore } from "../store/useStore"
 
-export const AssigneeTag = () => {
-  const [value, setValue] = useState<string>("")
-  const [image, setImage] = useState<string>("")
+interface AssigneeTagProps {
+  assigneeId: string
+  setAssigneeId: (value: string) => void
+}
+
+export const AssigneeTag: React.FC<AssigneeTagProps> = ({
+  assigneeId,
+  setAssigneeId,
+}) => {
+  const task = useTaskStore((state) => state.currentTask)
+
+  const [image, setImage] = useState<string | undefined>("")
+  const [name, setName] = useState<string | undefined>("")
+
+  useEffect(() => {
+    if (task) {
+      setName(task.assignee.fullName)
+      setImage(task.assignee.avatar)
+    }
+  }, [task])
 
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
         <button
           className={
-            value
+            assigneeId || name
               ? `${styles.assigneeButton} ${styles.active}`
               : styles.assigneeButton
           }
@@ -32,15 +50,21 @@ export const AssigneeTag = () => {
             </div>
           )}
           <h2 className={styles.label}>
-            {value ? value : "Assignee"}
+            {name ? name : "Assignee"}
           </h2>
         </button>
       </Popover.Trigger>
       <Popover.Anchor />
       <Popover.Portal>
-        <Popover.Content>
+        <Popover.Content
+          side="bottom"
+          align="end"
+          sideOffset={8}
+          alignOffset={-100}
+        >
           <AssigneeTagOptions
-            setValue={setValue}
+            setAssigneeId={setAssigneeId}
+            setName={setName}
             setImage={setImage}
           />
         </Popover.Content>

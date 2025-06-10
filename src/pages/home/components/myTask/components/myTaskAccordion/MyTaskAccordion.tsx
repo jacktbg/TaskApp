@@ -2,15 +2,17 @@ import { Accordion } from "radix-ui"
 import { AccordionHeader } from "./components/AccordionHeader"
 import { AccordionTask } from "./components/accordionTask/AccordionTask"
 import type { Task } from "../../../../models/taskProps"
+import React from "react"
 
 interface MyTaskAccordionProps {
   title: string
   tasks: Task[]
 }
 
-export const MyTaskAccordion: React.FC<
+const MyTaskAccordionComponent: React.FC<
   MyTaskAccordionProps
 > = ({ title, tasks }) => {
+  const count = tasks.length
   return (
     <Accordion.Root
       type="single"
@@ -18,7 +20,7 @@ export const MyTaskAccordion: React.FC<
       collapsible
     >
       <Accordion.Item value="item-1">
-        <AccordionHeader title={title} />
+        <AccordionHeader title={title} count={count} />
         <Accordion.Content>
           {tasks.map((task) => (
             <AccordionTask task={task} key={task.id} />
@@ -28,3 +30,7 @@ export const MyTaskAccordion: React.FC<
     </Accordion.Root>
   )
 }
+
+export const MyTaskAccordion = React.memo(
+  MyTaskAccordionComponent
+)

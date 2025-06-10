@@ -33,7 +33,7 @@
       aspect-ratio: 1 / 1;
 
       .icon {
-        width: 1.425vw;
+        width: clamp(20.51px, 1.425vw, 30rem);
       }
     }
     .dueDate {

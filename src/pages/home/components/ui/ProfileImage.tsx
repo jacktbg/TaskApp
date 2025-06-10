@@ -1,15 +1,15 @@
 import styles from "./styles/profileImage.module.scss"
 import profile from "../../../../assets/profile.png"
+import React from "react"
 
 interface ProfileImageProps {
   avatar?: string
   className?: string
 }
 
-export const ProfileImage: React.FC<ProfileImageProps> = ({
-  avatar,
-  className,
-}) => {
+const ProfileImageComponent: React.FC<
+  ProfileImageProps
+> = ({ avatar, className }) => {
   const handleImageError = (
     event: React.SyntheticEvent<HTMLImageElement, Event>
   ) => {
@@ -25,3 +25,7 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({
     />
   )
 }
+
+export const ProfileImage = React.memo(
+  ProfileImageComponent
+)

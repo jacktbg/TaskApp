@@ -9,10 +9,24 @@
   height: clamp(11.5rem, 12.778vw, 400rem);
   border-radius: clamp(0.5rem, 0.556vw, 20rem);
   padding: clamp(1rem, 1.112vw, 20rem);
-  row-gap: clamp(1.5rem, 1.667vw, 20rem);
+
   background: var(--color-neutral-3);
 }
 
+.error,
+.errorGroup {
+  display: flex;
+  align-items: center;
+  height: clamp(1.5rem, 1.667vw, 20rem);
+  width: 100%;
+  flex-shrink: 0;
+  gap: 1rem;
+
+  & > p {
+    width: 25%;
+    color: var(--color-primary-4);
+  }
+}
 .name {
   display: flex;
   align-items: center;
@@ -65,6 +79,89 @@
 
     &.active {
       background: var(--color-primary-4);
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .form {
+    position: fixed;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    padding-bottom: 30%;
+    border-radius: clamp(1.5rem, 1.667vw, 30rem);
+    background: var(--color-neutral-5);
+  }
+
+  .name {
+    margin-top: 20%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: clamp(2rem, 2.223vw, 30rem);
+    background: transparent;
+    font-weight: 600;
+    font-size: clamp(20px, 1.39vw, 30rem);
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: var(--color-neutral-1);
+
+    &::placeholder {
+      color: var(--color-neutral-2);
+    }
+  }
+
+  .tags {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .buttons {
+    .cancel,
+    .create {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 5%;
+      border-radius: clamp(0.5rem, 0.556vw, 20rem);
+      padding: clamp(0.5rem, 0.556vw, 20rem);
+      font-weight: 400;
+      font-size: clamp(15px, 1.042vw, 30rem);
+      line-height: 24px;
+      letter-spacing: 0.75px;
+      color: var(--color-neutral-1);
+    }
+    .cancel {
+      top: 30px;
+      left: 10px;
+      width: clamp(4rem, 4.445vw, 10rem);
+      background: transparent;
+    }
+    .create {
+      top: 30px;
+      right: 10px;
+      width: clamp(3.875rem, 4.306vw, 30rem);
+      background: transparent;
+
+      &.active {
+        background: var(--color-primary-4);
+      }
+    }
+  }
+  .error {
+    & > p {
+      width: 100%;
+    }
+  }
+  .errorGroup {
+    display: flex;
+    flex-direction: column;
+    & > p {
+      width: 100%;
     }
   }
 }

@@ -6,21 +6,19 @@ import {
   DoubleArrowIcon,
 } from "../pages/home/icons/Icons"
 
-interface DueDateTagOptions {
+interface DueDateTagOptionsProps {
   startDate: Date | null
   setStartDate: (date: Date | null) => void
-  setIsOpen: (boolean: boolean) => void
 }
 
 export const DueDateTagOptions: React.FC<
-  DueDateTagOptions
-> = ({ startDate, setStartDate, setIsOpen }) => {
+  DueDateTagOptionsProps
+> = ({ startDate, setStartDate }) => {
   return (
     <DatePicker
       selected={startDate}
       onChange={(date) => {
         setStartDate(date)
-        setIsOpen(false)
       }}
       todayButton="Today"
       calendarClassName={styles["wrapper"]}

@@ -32,3 +32,15 @@
     text-wrap: nowrap;
   }
 }
+
+@media screen and (max-width: 900px) {
+  .dueDateButton {
+    background: var(--color-neutral-2-transparent);
+    width: 100%;
+    flex-shrink: 0;
+    height: clamp(2rem, 2.223vw, 10rem);
+    justify-content: start;
+    padding-left: 1rem;
+    margin-top: 1rem;
+  }
+}

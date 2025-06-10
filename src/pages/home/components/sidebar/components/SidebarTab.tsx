@@ -1,15 +1,34 @@
 import styles from "../styles/sidebarTabList.module.scss"
-import type { SidebarTabProps } from "../models/sidebarTabProps"
-
+interface SidebarTabProps {
+  component: React.ReactNode
+  text: string
+  isActive?: boolean
+  onClick?: () => void
+}
 export const SidebarTab: React.FC<SidebarTabProps> = ({
   component,
   text,
+  isActive,
+  onClick,
 }) => {
   return (
-    <div className={styles.sidebarTabWrapper}>
+    <div
+      onClick={onClick}
+      className={
+        isActive
+          ? `${styles.sidebarTabWrapper} ${styles.active}`
+          : styles.sidebarTabWrapper
+      }
+    >
       <div className={styles.iconWrapper}>{component}</div>
       <h2 className={styles.text}>{text}</h2>
-      <div className={styles.rectangle}></div>
+      <div
+        className={
+          isActive
+            ? `${styles.rectangle} ${styles.show}`
+            : styles.rectangle
+        }
+      ></div>
     </div>
   )
 }

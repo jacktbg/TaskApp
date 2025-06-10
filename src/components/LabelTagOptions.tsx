@@ -10,13 +10,13 @@ const options: TaskTag[] = [
 ]
 
 interface LabelTagOptionsProps {
-  value: string[]
-  setValue: (option: string) => void
+  label: string[]
+  setLabel: (option: string) => void
 }
 
 export const LabelTagOptions: React.FC<
   LabelTagOptionsProps
-> = ({ value, setValue }) => {
+> = ({ label, setLabel }) => {
   return (
     <div className={styles.options}>
       <h3 className={styles.title}>Tag Title</h3>
@@ -25,8 +25,8 @@ export const LabelTagOptions: React.FC<
           <li key={i} className={styles.option}>
             <input
               type="checkbox"
-              checked={value.includes(option)}
-              onChange={() => setValue(option)}
+              checked={label.includes(option)}
+              onChange={() => setLabel(option)}
               id={`tag-${option}`}
             />
             <label

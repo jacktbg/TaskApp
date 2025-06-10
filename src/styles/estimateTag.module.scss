@@ -1,7 +1,6 @@
 .estimateButton {
   position: relative;
   color: var(--color-neutral-1);
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,5 +34,16 @@
     line-height: 24px;
     letter-spacing: 0.75px;
     text-wrap: nowrap;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .estimateButton {
+    background: var(--color-neutral-2-transparent);
+    width: 100%;
+    flex-shrink: 0;
+    height: clamp(2rem, 2.223vw, 10rem);
+    justify-content: start;
+    padding-left: 1rem;
   }
 }

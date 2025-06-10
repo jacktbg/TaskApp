@@ -34,7 +34,12 @@
 
 @media screen and (max-width: 900px) {
   .sidebarContainer {
+    position: absolute;
+    bottom: 0;
+    flex-shrink: 0;
+    z-index: 10;
     width: 100%;
+    height: auto;
     justify-content: start;
     align-items: start;
     height: clamp(79px, 20.26vw, 1.5rem);

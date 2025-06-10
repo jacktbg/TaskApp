@@ -1,41 +1,74 @@
-import type { TaskProps } from "../../models/taskProps"
+import { useQuery } from "@apollo/client"
+import type { Status, Task } from "../../models/taskProps"
 import { TaskCard } from "./components/taskCard/TaskCard"
 import styles from "./styles/dashboard.module.scss"
+import { GET_TASKS } from "../../../../services/queries"
+import { useMemo } from "react"
+import { useFilterStore } from "../../../../store/useStore"
 
-const titles: string[] = [
-  "working (03)",
-  "in progress (03)",
-  "completed (03)",
-]
-
-const task: TaskProps = {
-  id: "acbf0a5c-911a-4303-a707-5403bd16dc4a",
-  name: "Ticket4",
-  pointEstimate: "ZERO",
-  dueDate: "2025-06-04T23:53:06.177Z",
-  tags: ["REACT", "ANDROID", "IOS"],
-  status: "IN_PROGRESS",
-  avatar:
-    "https://avatars.dicebear.com/api/initials/jd.svg",
+const statusMap: Record<string, Status> = {
+  Working: "TODO",
+  "In Progress": "IN_PROGRESS",
+  Completed: "DONE",
+  // Backlog: "BACKLOG",
+  // Cancelled: "CANCELLED",
 }
+const titles = Object.keys(statusMap)
 
 export const Dashboard: React.FC = () => {
+  const filters = useFilterStore((state) => state.filters)
+  const { data, loading, error } = useQuery(GET_TASKS, {
+    variables: {
+      input: { ...filters },
+    },
+  })
+
+  const tasks: Task[] = data?.tasks || []
+
+  const tasksByStatus = useMemo(() => {
+    return titles.reduce((acc, title) => {
+      const status = statusMap[title]
+      acc[status] = tasks.filter(
+        (task) => task.status === status
+      )
+      return acc
+    }, {} as Record<Status, Task[]>)
+  }, [tasks])
+  if (loading) return <p>Loading tasks...</p>
+  if (error)
+    return <p>Error loading tasks: {error.message}</p>
   return (
     <table className={styles.table}>
       <thead>
         <tr className={styles.head}>
-          {titles.map((title) => (
-            <th
-              className={styles.title}
-              key={title}
-            >{`${title}`}</th>
-          ))}
+          {titles.map((title) => {
+            const status = statusMap[title]
+            const filteredTasks = tasksByStatus[status]
+            const count = " (" + filteredTasks.length + ")"
+            return (
+              <th className={styles.title} key={title}>
+                {`${title}`}
+                <p className={styles.count}>{count}</p>
+              </th>
+            )
+          })}
         </tr>
       </thead>
       <tbody className={styles.tbody}>
-        <tr className={styles.column}>
-          <TaskCard task={task} key={task.id} />
-        </tr>
+        {titles.map((title) => {
+          const status = statusMap[title]
+          const filteredTasks = tasksByStatus[status]
+          return (
+            <tr className={styles.column} key={status}>
+              {filteredTasks.map((taskFiltered) => (
+                <TaskCard
+                  task={taskFiltered}
+                  key={taskFiltered.id}
+                />
+              ))}
+            </tr>
+          )
+        })}
       </tbody>
     </table>
   )

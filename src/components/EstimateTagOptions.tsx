@@ -1,39 +1,41 @@
 import { Popover } from "radix-ui"
 import { EstimateIcon } from "../pages/home/icons/Icons"
 import styles from "../styles/estimateTagOptions.module.scss"
+import type { PointEstimate } from "../pages/home/models/taskProps"
 
-const options: string[] = [
-  "0 Points",
-  "1 Points",
-  "2 Points",
-  "4 Points",
-  "8 Points",
+const options: { label: string; value: PointEstimate }[] = [
+  { label: "0 Points", value: "ZERO" },
+  { label: "1 Points", value: "ONE" },
+  { label: "2 Points", value: "TWO" },
+  { label: "4 Points", value: "FOUR" },
+  { label: "8 Points", value: "EIGHT" },
 ]
 
 interface EstimateTagOptionsProps {
-  setValue: (option: string) => void
+  setEstimate: (option: PointEstimate) => void
+  setLabel: (option: string) => void
 }
 
 export const EstimateTagOptions: React.FC<
   EstimateTagOptionsProps
-> = ({ setValue }) => {
+> = ({ setEstimate, setLabel }) => {
   return (
     <div className={styles.options}>
       <h3 className={styles.title}>Estimate</h3>
       <ul className={styles.optionsWrapper}>
-        {options.map((option, i) => (
-          <Popover.Close asChild key={option}>
+        {options.map(({ label, value }) => (
+          <Popover.Close asChild key={value}>
             <li
-              key={i}
               onClick={() => {
-                setValue(option)
+                setEstimate(value)
+                setLabel(label)
               }}
               className={styles.option}
             >
               <div className={styles.iconWrapper}>
                 <EstimateIcon className={styles.icon} />
               </div>
-              <p className={styles.label}>{option}</p>
+              <p className={styles.label}>{label}</p>
             </li>
           </Popover.Close>
         ))}

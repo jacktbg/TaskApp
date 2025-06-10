@@ -1,5 +1,7 @@
 .options {
   position: absolute;
+  top: clamp(8px, 0.556vw, 10rem);
+  transform: translate(-190%, -45%);
   display: flex;
   flex-direction: column;
   justify-content: center;

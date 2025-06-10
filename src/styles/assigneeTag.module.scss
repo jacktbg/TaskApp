@@ -1,7 +1,5 @@
 .assigneeButton {
-  position: relative;
   color: var(--color-neutral-1);
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,12 +32,27 @@
   }
 
   .label {
-    display: flex;
+    display: block;
     align-items: center;
     font-weight: 600;
     font-size: clamp(15px, 1.042vw, 30rem);
     line-height: 24px;
     letter-spacing: 0.75px;
     text-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .assigneeButton {
+    background: var(--color-neutral-2-transparent);
+    width: 100%;
+    flex-shrink: 0;
+    height: clamp(2rem, 2.223vw, 10rem);
+    justify-content: start;
+    padding-left: 1rem;
+    margin-top: 1rem;
   }
 }

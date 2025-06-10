@@ -1,0 +1,31 @@
+.option {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--color-neutral-1);
+  gap: clamp(0.5rem, 0.556vw, 10rem);
+  width: clamp(122px, 8.473vw, 100rem);
+  height: clamp(2rem, 2.223vw, 10rem);
+
+  .iconWrapper {
+    width: clamp(1.5rem, 1.667vw, 5rem);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: clamp(1rem, 1.112vw, 5rem);
+
+    color: var(--color-neutral-1);
+
+    .edit {
+      width: clamp(17.97px, 1.248vw, 10rem);
+    }
+  }
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+}

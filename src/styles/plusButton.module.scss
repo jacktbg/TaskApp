@@ -30,7 +30,7 @@
     flex-direction: column;
     margin-left: 0;
     justify-content: start;
-    width: auto;
+    width: fit-content;
     height: 100%;
     border-radius: 0;
     background: transparent;
@@ -38,8 +38,40 @@
     .plus {
       display: none;
     }
-    .plusMobile {
+  }
+  .plusMobileContainer {
+    cursor: pointer;
+    color: var(--color-neutral-2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    transition: color 0.3 ease 0.1;
+
+    .plusMobileWrapper {
+      width: clamp(1.5rem, 1.667vw, 30rem);
+      aspect-ratio: 1 / 1;
       display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .plusMobile {
+        width: clamp(20px, 5.13vw, 3rem);
+      }
+    }
+
+    &:active {
+      color: var(--color-primary-4);
+    }
+    .title {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 13px;
+      letter-spacing: 1px;
+      text-align: center;
+      text-wrap: nowrap;
     }
   }
 }

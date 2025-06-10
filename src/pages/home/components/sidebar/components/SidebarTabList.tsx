@@ -5,6 +5,7 @@ import {
   MyTaskIcon,
 } from "../../../icons/Icons"
 import { SidebarTab } from "./SidebarTab"
+import { useTabStore } from "../../../../../store/useStore"
 
 const options: SidebarTabProps[] = [
   {
@@ -18,6 +19,11 @@ const options: SidebarTabProps[] = [
 ]
 
 export const SidebarTabList = () => {
+  const setActiveTab = useTabStore(
+    (state) => state.setActiveTab
+  )
+  const activeTab = useTabStore((state) => state.activeTab)
+
   return (
     <div className={styles.sidebarTabListContainer}>
       {options.map((o, i) => (
@@ -25,6 +31,10 @@ export const SidebarTabList = () => {
           key={i}
           component={o.component}
           text={o.text}
+          isActive={activeTab === o.text}
+          onClick={() =>
+            setActiveTab(o.text as "dashboard" | "my task")
+          }
         />
       ))}
     </div>

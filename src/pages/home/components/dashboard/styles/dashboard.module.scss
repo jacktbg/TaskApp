@@ -28,6 +28,11 @@
     text-transform: capitalize;
     align-items: center;
     letter-spacing: 0.75px;
+    white-space-collapse: preserve;
+
+    .counter {
+      color: var(--color-neutral-2);
+    }
   }
 }
 
@@ -48,13 +53,10 @@
 
 @media screen and (max-width: 900px) {
   .table {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .table {
-    margin-left: clamp(16px, 4.103vw, 5rem);
+    margin-top: 1rem;
+    width: calc(100% - 1rem);
+    margin-left: 1rem;
+    max-height: 40rem;
   }
 }
 

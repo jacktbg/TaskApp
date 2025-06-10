@@ -5,16 +5,25 @@ import {
   PlusIcon,
   PlusMobileIcon,
 } from "../pages/home/icons/Icons"
+import { useState } from "react"
 
 export const PlusButton: React.FC = () => {
+  const [open, setOpen] = useState<boolean>(false)
   return (
-    <Dialog.Root>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <button className={styles.plusContainer}>
+        <button
+          className={styles.plusContainer}
+          onClick={() => setOpen(true)}
+        >
           <PlusIcon className={styles.plus} />
           <div className={styles.plusMobileContainer}>
-            <PlusMobileIcon className={styles.plusMobile} />
-            <p className={styles.text}>Add Project</p>
+            <div className={styles.plusMobileWrapper}>
+              <PlusMobileIcon
+                className={styles.plusMobile}
+              />
+            </div>
+            <p className={styles.title}>Add Project</p>
           </div>
         </button>
       </Dialog.Trigger>
@@ -29,7 +38,7 @@ export const PlusButton: React.FC = () => {
               It's a form that lets you create a Task
             </Dialog.Description>
           </VisuallyHidden.Root>
-          <TaskForm />
+          <TaskForm setOpen={setOpen} />
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

@@ -5,12 +5,13 @@ import { EstimateCell } from "./components/EstimateCell"
 import { NameCell } from "./components/NameCell"
 import { TagCell } from "./components/TagCell"
 import type { Task } from "../../../../../../models/taskProps"
+import React from "react"
 
 interface AccordionTaskProps {
   task: Task
 }
 
-export const AccordionTask: React.FC<
+const AccordionTaskComponent: React.FC<
   AccordionTaskProps
 > = ({ task }) => {
   const {
@@ -21,6 +22,7 @@ export const AccordionTask: React.FC<
     tags,
     assignee,
   } = task
+
   return (
     <div className={styles.taskContainer}>
       <NameCell position={position} name={name} />
@@ -31,3 +33,7 @@ export const AccordionTask: React.FC<
     </div>
   )
 }
+
+export const AccordionTask = React.memo(
+  AccordionTaskComponent
+)

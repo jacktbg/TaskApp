@@ -8,11 +8,43 @@
     width: clamp(327px, 83.85vw, 100rem);
     height: clamp(39px, 10vw, 10rem);
     justify-content: space-between;
+    align-items: center;
   }
 
   .optionContainer {
-    height: 100%;
+    cursor: pointer;
+    color: var(--color-neutral-2);
+    height: clamp(39px, 10vw, 10rem);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    .iconWrapper {
+      width: clamp(1.5rem, 1.667vw, 30rem);
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .dashboardIcon {
+        width: clamp(18px, 4.618vw, 3rem);
+      }
+      .myTaskIcon {
+        width: clamp(20px, 5.13vw, 3rem);
+      }
+    }
+
+    &.active {
+      color: var(--color-primary-4);
+    }
+
+    .title {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 13px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
   }
 }

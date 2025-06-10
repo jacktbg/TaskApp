@@ -2,11 +2,43 @@ import styles from "../styles/menuDots.module.scss"
 import { Popover } from "radix-ui"
 import {
   DeleteIcon,
-  EditIcon,
   ThreeDotsIcon,
 } from "../../../../../icons/Icons"
+import { EditOption } from "./EditOption"
+import type { Task } from "../../../../../models/taskProps"
+import { useMutation } from "@apollo/client"
+import { DELETE_TASK_MUTATION } from "../../../../../../../services/mutations"
+import { GET_TASKS } from "../../../../../../../services/queries"
 
-export const MenuDots: React.FC = () => {
+interface MenuDotsProps {
+  task: Task
+}
+
+export const MenuDots: React.FC<MenuDotsProps> = ({
+  task,
+}) => {
+  const [deleteTask] = useMutation(DELETE_TASK_MUTATION, {
+    variables: { input: { id: task.id } },
+    refetchQueries: [
+      {
+        query: GET_TASKS,
+        variables: {
+          input: {},
+        },
+      },
+    ],
+    awaitRefetchQueries: true,
+    onCompleted: () => {
+      console.log("✅ Task deleted")
+    },
+    onError: (error) => {
+      console.error(
+        "❌ Error deleting task:",
+        error.message
+      )
+    },
+  })
+
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
@@ -16,15 +48,13 @@ export const MenuDots: React.FC = () => {
       </Popover.Trigger>
       <Popover.Anchor />
       <Popover.Portal>
-        <Popover.Content>
+        <Popover.Content side={"bottom"} align={"end"}>
           <div className={styles.optionsContainer}>
-            <div className={styles.option}>
-              <div className={styles.iconWrapper}>
-                <EditIcon className={styles.edit} />
-              </div>
-              <p>Edit</p>
-            </div>
-            <div className={styles.option}>
+            <EditOption task={task} />
+            <div
+              className={styles.option}
+              onClick={() => deleteTask()}
+            >
               <div className={styles.iconWrapper}>
                 <DeleteIcon className={styles.delete} />
               </div>

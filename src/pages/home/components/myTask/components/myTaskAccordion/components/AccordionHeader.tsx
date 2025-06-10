@@ -1,20 +1,33 @@
 import styles from "../styles/accordionHeader.module.scss"
 import { CollapseArrowIcon } from "../../../../../icons/Icons"
 import { Accordion } from "radix-ui"
+import { useState } from "react"
 
 interface AccordionHeaderProps {
   title: string
+  count: number
 }
 
 export const AccordionHeader: React.FC<
   AccordionHeaderProps
-> = ({ title }) => {
-  const counter = " (03)"
+> = ({ title, count }) => {
+  const [collapse, setCollapse] = useState<boolean>(false)
+
+  const counter = " (" + count + ")"
   return (
     <Accordion.Header asChild>
-      <Accordion.Trigger className={styles.wrapper}>
+      <Accordion.Trigger
+        className={styles.wrapper}
+        onClick={() => setCollapse((prev) => !prev)}
+      >
         <div className={styles.iconWrapper}>
-          <CollapseArrowIcon className={styles.icon} />
+          <CollapseArrowIcon
+            className={
+              collapse
+                ? `${styles.icon} ${styles.collapse}`
+                : styles.icon
+            }
+          />
         </div>
         <h3 className={styles.title}>
           {title}
