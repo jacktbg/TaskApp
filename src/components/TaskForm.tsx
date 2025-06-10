@@ -12,8 +12,11 @@ import { DueDateTag } from "./DueDateTag"
 import { EstimateTag } from "./EstimateTag"
 import { LabelTag } from "./LabelTag"
 import { Dialog } from "radix-ui"
-import { GET_TASKS } from "../services/queries"
-import { useTaskStore } from "../store/useStore"
+import { GET_MY_TASK, GET_TASKS } from "../services/queries"
+import {
+  useTabStore,
+  useTaskStore,
+} from "../store/useStore"
 import { useEffect } from "react"
 import { XIcon } from "../pages/home/icons/Icons"
 
@@ -21,7 +24,11 @@ type TaskFormProps = {
   setOpen: (boolean: boolean) => void
 }
 const createTaskSchema = z.object({
-  name: z.string().min(1, "Task Title is required"),
+  name: z
+    .string()
+    .min(1, "Task Title is required")
+    .max(12, "Max 12")
+    .trim(),
   pointEstimate: z.enum(
     ["ZERO", "ONE", "TWO", "FOUR", "EIGHT"],
     {
@@ -60,6 +67,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
   const taskToEdit = useTaskStore(
     (state) => state.currentTask
   )
+  const activeTab = useTabStore((state) => state.activeTab)
   const mode = useTaskStore((state) => state.mode)
 
   const {
@@ -121,7 +129,8 @@ export const TaskForm: React.FC<TaskFormProps> = ({
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION, {
     refetchQueries: [
       {
-        query: GET_TASKS,
+        query:
+          activeTab === "all" ? GET_TASKS : GET_MY_TASK,
         variables: {
           input: {},
         },
@@ -163,7 +172,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
               dueDate: data.dueDate.toISOString(),
               name: data.name,
               pointEstimate: data.pointEstimate,
-              status: "TODO",
+              status: "BACKLOG",
               tags: data.labels,
             },
           },

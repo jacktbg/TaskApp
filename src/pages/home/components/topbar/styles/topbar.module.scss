@@ -19,11 +19,29 @@
       color: var(--color-neutral-1);
       width: clamp(1.125rem, 1.25vw, 5rem);
       aspect-ratio: 1 / 1;
+      transition: color 0.3s ease 0.1s;
+      transition: transform 0.1s ease 0.1s;
     }
 
+    &:hover {
+      background: linear-gradient(
+        90deg,
+        rgba(186, 37, 37, 0) 0%,
+        rgba(210, 77, 77, 0.1) 100%
+      );
+    }
+    &:hover .icon {
+      color: var(--color-primary-4);
+      transform: scale(1.1);
+    }
     &.active {
       border-radius: clamp(0.5rem, 0.556vw, 4rem);
       border: 1px solid var(--color-primary-4);
+      background: linear-gradient(
+        90deg,
+        rgba(186, 37, 37, 0) 0%,
+        rgba(210, 77, 77, 0.1) 100%
+      );
 
       .icon {
         color: var(--color-primary-4);

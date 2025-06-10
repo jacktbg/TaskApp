@@ -1,0 +1,8 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  width: clamp(21.25rem, 24.167vw, 100rem);
+  flex-shrink: 0;
+  height: 100%;
+  row-gap: clamp(1rem, 1.112vw, 5rem);
+}

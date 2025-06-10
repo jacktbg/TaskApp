@@ -34,7 +34,7 @@ export const EditOption: React.FC<EditOptionProps> = ({
           <div className={styles.iconWrapper}>
             <EditIcon className={styles.edit} />
           </div>
-          <p>Edit</p>
+          <p className={styles.text}>Edit</p>
         </div>
       </Dialog.Trigger>
       <Dialog.Portal>

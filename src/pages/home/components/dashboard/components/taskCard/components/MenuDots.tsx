@@ -8,7 +8,11 @@ import { EditOption } from "./EditOption"
 import type { Task } from "../../../../../models/taskProps"
 import { useMutation } from "@apollo/client"
 import { DELETE_TASK_MUTATION } from "../../../../../../../services/mutations"
-import { GET_TASKS } from "../../../../../../../services/queries"
+import {
+  GET_MY_TASK,
+  GET_TASKS,
+} from "../../../../../../../services/queries"
+import { useTabStore } from "../../../../../../../store/useStore"
 
 interface MenuDotsProps {
   task: Task
@@ -17,11 +21,14 @@ interface MenuDotsProps {
 export const MenuDots: React.FC<MenuDotsProps> = ({
   task,
 }) => {
+  const activeTab = useTabStore((state) => state.activeTab)
+
   const [deleteTask] = useMutation(DELETE_TASK_MUTATION, {
     variables: { input: { id: task.id } },
     refetchQueries: [
       {
-        query: GET_TASKS,
+        query:
+          activeTab === "all" ? GET_TASKS : GET_MY_TASK,
         variables: {
           input: {},
         },
@@ -58,7 +65,7 @@ export const MenuDots: React.FC<MenuDotsProps> = ({
               <div className={styles.iconWrapper}>
                 <DeleteIcon className={styles.delete} />
               </div>
-              <p>Delete</p>
+              <p className={styles.text}>Delete</p>
             </div>
           </div>
           <Popover.Close />

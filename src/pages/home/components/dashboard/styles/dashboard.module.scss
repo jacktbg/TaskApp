@@ -8,6 +8,12 @@
   flex: 1;
   color: var(--color-neutral-1);
   overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
 }
 
 .head {
@@ -41,14 +47,6 @@
   flex-direction: row;
   flex: 1;
   column-gap: clamp(2rem, 2.223vw, 10rem);
-
-  .column {
-    display: flex;
-    flex-direction: column;
-    width: clamp(21.25rem, 24.167vw, 100rem);
-    height: 100%;
-    row-gap: clamp(1rem, 1.112vw, 5rem);
-  }
 }
 
 @media screen and (max-width: 900px) {

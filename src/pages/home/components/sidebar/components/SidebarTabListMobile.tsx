@@ -7,19 +7,27 @@ import {
 import styles from "../styles/sidebarTabListMobile.module.scss"
 
 export const SidebarTabListMobile: React.FC = () => {
+  const setActiveHighlight = useTabStore(
+    (state) => state.setActiveHighlight
+  )
+  const activeHighlight = useTabStore(
+    (state) => state.activeHighlight
+  )
   const setActiveTab = useTabStore(
     (state) => state.setActiveTab
   )
-  const activeTab = useTabStore((state) => state.activeTab)
   return (
     <div className={styles.container}>
       <div
         className={
-          activeTab === "dashboard"
+          activeHighlight === "dashboard"
             ? `${styles.optionContainer} ${styles.active}`
             : styles.optionContainer
         }
-        onClick={() => setActiveTab("dashboard")}
+        onClick={() => {
+          setActiveHighlight("dashboard")
+          setActiveTab("all")
+        }}
       >
         <div className={styles.iconWrapper}>
           <DashboardIcon className={styles.dashboardIcon} />
@@ -29,11 +37,14 @@ export const SidebarTabListMobile: React.FC = () => {
       <PlusButton />
       <div
         className={
-          activeTab === "my task"
+          activeHighlight === "my task"
             ? `${styles.optionContainer} ${styles.active}`
             : styles.optionContainer
         }
-        onClick={() => setActiveTab("my task")}
+        onClick={() => {
+          setActiveHighlight("my task")
+          setActiveTab("mine")
+        }}
       >
         <div className={styles.iconWrapper}>
           <MyTaskMobileIcon className={styles.myTaskIcon} />

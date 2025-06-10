@@ -4,18 +4,23 @@ import { Dashboard } from "../dashboard/Dashboard"
 import { Topbar } from "../topbar/Topbar"
 import { MyTask } from "../myTask/MyTask"
 import { useTabStore } from "../../../../store/useStore"
+import { MyProfile } from "../myProfile/MyProfile"
 
 export const BodyContainer = () => {
-  const activeTab = useTabStore((state) => state.activeTab)
+  const activeComponent = useTabStore(
+    (state) => state.activeComponent
+  )
 
   return (
     <div className={styles.bodyContainer}>
       <Searchbar />
       <Topbar />
-      {activeTab === "dashboard" ? (
+      {activeComponent === "dashboard" ? (
         <Dashboard />
-      ) : (
+      ) : activeComponent === "my task" ? (
         <MyTask />
+      ) : (
+        <MyProfile />
       )}
     </div>
   )

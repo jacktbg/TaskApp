@@ -7,11 +7,16 @@
   aspect-ratio: 1 / 1;
   border-radius: clamp(0.5rem, 0.556vw, 4rem);
   background: var(--color-primary-4);
+  transition: transform 0.3s ease 0.1s;
 
   .plus {
     width: clamp(14px, 0.973vw, 10rem);
     aspect-ratio: 1 / 1;
     color: var(--color-neutral-1);
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 }
 .plusMobileContainer {

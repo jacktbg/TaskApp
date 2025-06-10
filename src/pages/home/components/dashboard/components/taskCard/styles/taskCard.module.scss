@@ -8,3 +8,7 @@
   border-radius: clamp(0.5rem, 0.556vw, 10rem);
   row-gap: clamp(1rem, 1.112vw, 20rem);
 }
+
+.hand {
+  cursor: grab;
+}

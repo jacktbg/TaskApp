@@ -3,8 +3,10 @@
   flex-direction: row;
   justify-content: space-between;
   height: clamp(1.5rem, 1.667vw, 10rem);
-  width: clamp(171px, 11.876vw, 300rem);
+  // width: clamp(171px, 11.876vw, 300rem)
+  width: 80%;
   flex-shrink: 0;
+  gap: 24px;
 
   .iconWrapper {
     display: flex;
@@ -17,11 +19,18 @@
       width: clamp(20.31px, 1.41vw, 30rem);
       aspect-ratio: 1 / 1;
       color: var(--color-neutral-2);
+      transition: color 0.3 ease 0.2;
+      transition: transform 0.3 ease 0.2;
     }
+  }
+  &:hover .icon {
+    color: var(--color-primary-4);
+    transform: scale(1.1);
   }
   .searchInput {
     height: clamp(1.5rem, 1.667vw, 10rem);
-    width: clamp(123px, 8.542vw, 300rem);
+    // width: clamp(123px, 8.542vw, 300rem);
+    width: 100%;
     background: transparent;
     font-size: clamp(15px, 1.042vw, 4rem);
     display: flex;

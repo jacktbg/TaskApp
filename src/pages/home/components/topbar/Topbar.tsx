@@ -7,30 +7,32 @@ import { PlusButton } from "../../../../components/PlusButton"
 import { useTabStore } from "../../../../store/useStore"
 
 export const Topbar = () => {
-  const setActiveTab = useTabStore(
-    (state) => state.setActiveTab
+  const setActiveComponent = useTabStore(
+    (state) => state.setActiveComponent
   )
-  const activeTab = useTabStore((state) => state.activeTab)
+  const activeComponent = useTabStore(
+    (state) => state.activeComponent
+  )
   return (
     <section className={styles.container}>
       <button
         className={
-          activeTab === "my task"
+          activeComponent === "my task"
             ? `${styles.iconWrapper} ${styles.active}`
             : styles.iconWrapper
         }
-        onClick={() => setActiveTab("my task")}
+        onClick={() => setActiveComponent("my task")}
       >
         <MyTaskIcon className={styles.icon} />
         <p className={styles.text}>Task</p>
       </button>
       <button
         className={
-          activeTab === "dashboard"
+          activeComponent === "dashboard"
             ? `${styles.iconWrapper} ${styles.active}`
             : styles.iconWrapper
         }
-        onClick={() => setActiveTab("dashboard")}
+        onClick={() => setActiveComponent("dashboard")}
       >
         <DashboardIcon className={styles.icon} />
         <p className={styles.text}>Dashboard</p>
