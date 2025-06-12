@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react"
-import { SearchIcon } from "../../../../icons/Icons"
-import styles from "../../styles/inputWrapper.module.scss"
-import { useDebounce } from "../../../../../../utilities/useDebounce"
-import { useFilterStore } from "../../../../../../store/useStore"
+import styles from "../styles/inputWrapper.module.scss"
+import { useRef } from "react"
+import { SearchIcon } from "../../../icons/Icons"
+import { useSearchFormStore } from "../../../../../store/useStore"
+import { FilterButton } from "./FilterButton"
 
 interface InputWrapperProps {
   setFocus: (boolean: boolean) => void
@@ -11,20 +11,12 @@ interface InputWrapperProps {
 export const InputWrapper: React.FC<InputWrapperProps> = ({
   setFocus,
 }) => {
-  const [searchTerm, setSearchTerm] = useState("")
   const inputRef = useRef<HTMLInputElement>(null)
-  const debouncedSearch = useDebounce(searchTerm, 400)
-  const setFilter = useFilterStore(
-    (state) => state.setFilter
-  )
 
-  useEffect(() => {
-    if (debouncedSearch.trim() === "") {
-      setFilter("name", undefined)
-    } else {
-      setFilter("name", debouncedSearch)
-    }
-  }, [debouncedSearch, setFilter])
+  const name = useSearchFormStore((state) => state.name)
+  const setField = useSearchFormStore(
+    (state) => state.setField
+  )
 
   const handleKeyDown = (
     e: React.KeyboardEvent<HTMLInputElement>
@@ -33,6 +25,7 @@ export const InputWrapper: React.FC<InputWrapperProps> = ({
       inputRef.current?.blur()
     }
   }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.iconWrapper}>
@@ -43,13 +36,16 @@ export const InputWrapper: React.FC<InputWrapperProps> = ({
         type="text"
         className={styles.searchInput}
         placeholder="Search by name"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        value={name}
+        onChange={(e) =>
+          setField("name", e.target.value.trimStart())
+        }
         maxLength={15}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
         onKeyDown={handleKeyDown}
       />
+      <FilterButton />
     </div>
   )
 }

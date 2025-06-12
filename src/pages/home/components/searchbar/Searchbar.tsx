@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { CancelIcon } from "../../icons/Icons"
-import { InputWrapper } from "./components/inputWrapper/InputWrapper"
-import { NotificationWrapper } from "./components/notificationWrapper/NotificationWrapper"
 import styles from "./styles/searchbar.module.scss"
+import { InputWrapper } from "./components/InputWrapper"
+import { NotificationWrapper } from "./components/NotificationWrapper"
 
 export const Searchbar = () => {
   const [focus, setFocus] = useState<boolean>(false)
@@ -10,6 +10,7 @@ export const Searchbar = () => {
     <section className={styles.searchbarContainer}>
       <div className={styles.searchbarWrapper}>
         <InputWrapper setFocus={setFocus} />
+
         {focus ? (
           <div className={styles.iconWrapper}>
             <CancelIcon className={styles.icon} />

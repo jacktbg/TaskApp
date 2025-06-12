@@ -13,10 +13,12 @@ import {
   GET_TASKS,
 } from "../../../../../../../services/queries"
 import {
-  useFilterStore,
+  useSearchFormStore,
   useTabStore,
   useUserStore,
 } from "../../../../../../../store/useStore"
+import { useMemo } from "react"
+import { useDebounce } from "../../../../../../../utilities/useDebounce"
 
 interface MenuDotsProps {
   task: Task
@@ -25,9 +27,48 @@ interface MenuDotsProps {
 export const MenuDots: React.FC<MenuDotsProps> = ({
   task,
 }) => {
-  const activeTab = useTabStore((state) => state.activeTab)
-  const filters = useFilterStore((state) => state.filters)
   const id = useUserStore((state) => state.id)
+
+  const activeTab = useTabStore((state) => state.activeTab)
+
+  const name = useSearchFormStore((state) => state.name)
+  const pointEstimate = useSearchFormStore(
+    (state) => state.pointEstimate
+  )
+  const ownerId = useSearchFormStore(
+    (state) => state.ownerId
+  )
+  const status = useSearchFormStore((state) => state.status)
+  const tags = useSearchFormStore((state) => state.tags)
+  const dueDate = useSearchFormStore(
+    (state) => state.dueDate
+  )
+
+  const filters = useMemo(
+    () => ({
+      name,
+      pointEstimate,
+      ownerId,
+      status,
+      tags,
+      dueDate,
+    }),
+    [name, pointEstimate, ownerId, status, tags, dueDate]
+  )
+
+  const debouncedFilters = useDebounce(filters, 400)
+
+  const cleanedFilters = useMemo(() => {
+    return Object.fromEntries(
+      Object.entries({
+        ...debouncedFilters,
+        tags: debouncedFilters.tags?.length
+          ? debouncedFilters.tags
+          : undefined,
+        name: debouncedFilters.name?.trim() || undefined,
+      }).filter(([, v]) => v !== undefined)
+    )
+  }, [debouncedFilters])
 
   const [deleteTask] = useMutation(DELETE_TASK_MUTATION, {
     variables: { input: { id: task.id } },
@@ -38,8 +79,8 @@ export const MenuDots: React.FC<MenuDotsProps> = ({
         variables: {
           input:
             activeTab === "all"
-              ? { ...filters }
-              : { ...filters, assigneeId: id },
+              ? { ...cleanedFilters }
+              : { ...cleanedFilters, assigneeId: id },
         },
       },
     ],

@@ -7,7 +7,6 @@ import { CounterTooltip } from "./CounterToolTip"
 interface TagCellProps {
   tags: TaskTag[]
 }
-
 export const TagCell: React.FC<TagCellProps> = ({
   tags,
 }) => {
@@ -16,14 +15,13 @@ export const TagCell: React.FC<TagCellProps> = ({
     tags.length
   )
 
-  useEffect(() => {
-    if (!containerRef.current) return
-
+  const calculateVisibleTags = () => {
     const container = containerRef.current
+    if (!container) return
+
     const children = Array.from(
       container.children
     ) as HTMLDivElement[]
-
     let totalWidth = 0
     const containerWidth = container.clientWidth
     let fitCount = tags.length
@@ -45,7 +43,26 @@ export const TagCell: React.FC<TagCellProps> = ({
     }
 
     setVisibleCount(fitCount)
+  }
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      calculateVisibleTags()
+    })
+    return () => cancelAnimationFrame(id)
   }, [tags])
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const observer = new ResizeObserver(() => {
+      calculateVisibleTags()
+    })
+
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [])
 
   const hiddenCount = tags.length - visibleCount
 

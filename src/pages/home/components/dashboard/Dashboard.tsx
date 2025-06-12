@@ -7,7 +7,7 @@ import {
 } from "../../../../services/queries"
 import { useMemo } from "react"
 import {
-  useFilterStore,
+  useSearchFormStore,
   useTabStore,
   useUserStore,
 } from "../../../../store/useStore"
@@ -15,6 +15,7 @@ import { closestCenter, DndContext } from "@dnd-kit/core"
 import type { DragEndEvent } from "@dnd-kit/core"
 import { UPDATE_TASK_MUTATION } from "../../../../services/mutations"
 import { ColumnBody } from "./components/ColumnBody"
+import { useDebounce } from "../../../../utilities/useDebounce"
 
 const statusMap: Record<string, Status> = {
   Working: "TODO",
@@ -30,13 +31,56 @@ export const Dashboard: React.FC = () => {
   const id = useUserStore((state) => state.id)
 
   const [updateTask] = useMutation(UPDATE_TASK_MUTATION)
-  const filters = useFilterStore((state) => state.filters)
+
+  const name = useSearchFormStore((state) => state.name)
+  const pointEstimate = useSearchFormStore(
+    (state) => state.pointEstimate
+  )
+  const ownerId = useSearchFormStore(
+    (state) => state.ownerId
+  )
+  const status = useSearchFormStore((state) => state.status)
+  const tags = useSearchFormStore((state) => state.tags)
+  const dueDate = useSearchFormStore(
+    (state) => state.dueDate
+  )
+
+  const filters = useMemo(
+    () => ({
+      name,
+      pointEstimate,
+      ownerId,
+      status,
+      tags,
+      dueDate,
+    }),
+    [name, pointEstimate, ownerId, status, tags, dueDate]
+  )
+
+  const debouncedFilters = useDebounce(filters, 400)
+
+  const cleanedFilters = useMemo(() => {
+    return Object.fromEntries(
+      Object.entries({
+        ...debouncedFilters,
+        tags: debouncedFilters.tags?.length
+          ? debouncedFilters.tags
+          : undefined,
+        name: debouncedFilters.name?.trim() || undefined,
+      }).filter(([, v]) => v !== undefined)
+    )
+  }, [debouncedFilters])
+
   const query =
     activeTab === "all" ? GET_TASKS : GET_MY_TASK
   const variables =
     activeTab === "all"
-      ? { input: { ...filters } }
-      : { input: { ...filters, assigneeId: id } }
+      ? { input: cleanedFilters }
+      : { input: { ...cleanedFilters, assigneeId: id } }
+
+  console.log("cleanedFilters: ", cleanedFilters)
+  console.log("variables: ", variables)
+
   const { data, loading, error } = useQuery(query, {
     variables,
   })
@@ -52,6 +96,7 @@ export const Dashboard: React.FC = () => {
       return acc
     }, {} as Record<Status, Task[]>)
   }, [tasks])
+
   if (loading) return <p>Loading tasks...</p>
   if (error)
     return <p>Error loading tasks: {error.message}</p>

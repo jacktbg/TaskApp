@@ -14,13 +14,14 @@ import { LabelTag } from "./LabelTag"
 import { Dialog } from "radix-ui"
 import { GET_MY_TASK, GET_TASKS } from "../services/queries"
 import {
-  useFilterStore,
+  useSearchFormStore,
   useTabStore,
   useTaskStore,
   useUserStore,
 } from "../store/useStore"
-import { useEffect } from "react"
+import { useEffect, useMemo } from "react"
 import { XIcon } from "../pages/home/icons/Icons"
+import { useDebounce } from "../utilities/useDebounce"
 
 type TaskFormProps = {
   setOpen: (boolean: boolean) => void
@@ -70,7 +71,46 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     (state) => state.currentTask
   )
   const activeTab = useTabStore((state) => state.activeTab)
-  const filters = useFilterStore((state) => state.filters)
+
+  const name = useSearchFormStore((state) => state.name)
+  const pointEstimate = useSearchFormStore(
+    (state) => state.pointEstimate
+  )
+  const ownerId = useSearchFormStore(
+    (state) => state.ownerId
+  )
+  const status = useSearchFormStore((state) => state.status)
+  const tags = useSearchFormStore((state) => state.tags)
+  const dueDate = useSearchFormStore(
+    (state) => state.dueDate
+  )
+
+  const filters = useMemo(
+    () => ({
+      name,
+      pointEstimate,
+      ownerId,
+      status,
+      tags,
+      dueDate,
+    }),
+    [name, pointEstimate, ownerId, status, tags, dueDate]
+  )
+
+  const debouncedFilters = useDebounce(filters, 400)
+
+  const cleanedFilters = useMemo(() => {
+    return Object.fromEntries(
+      Object.entries({
+        ...debouncedFilters,
+        tags: debouncedFilters.tags?.length
+          ? debouncedFilters.tags
+          : undefined,
+        name: debouncedFilters.name?.trim() || undefined,
+      }).filter(([, v]) => v !== undefined)
+    )
+  }, [debouncedFilters])
+
   const id = useUserStore((state) => state.id)
   const mode = useTaskStore((state) => state.mode)
 
@@ -114,8 +154,8 @@ export const TaskForm: React.FC<TaskFormProps> = ({
         variables: {
           input:
             activeTab === "all"
-              ? { ...filters }
-              : { ...filters, assigneeId: id },
+              ? { ...cleanedFilters }
+              : { ...cleanedFilters, assigneeId: id },
         },
       },
     ],

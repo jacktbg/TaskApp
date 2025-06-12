@@ -1,5 +1,5 @@
 export const dueDateFormatter = (
-  dueDate: string
+  dueDate: Date | string
 ): string => {
   const date = new Date(dueDate)
   const today = new Date()

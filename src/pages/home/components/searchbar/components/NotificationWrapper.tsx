@@ -1,6 +1,6 @@
-import styles from "../../styles/notificationWrapper.module.scss"
-import { BellIcon } from "../../../../icons/Icons"
-import { ProfileImage } from "../../../ui/ProfileImage"
+import styles from "../styles/notificationWrapper.module.scss"
+import { BellIcon } from "../../../icons/Icons"
+import { ProfileImage } from "../../ui/ProfileImage"
 
 export const NotificationWrapper = () => {
   return (

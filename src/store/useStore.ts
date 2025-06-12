@@ -35,35 +35,6 @@ export const useTabStore = create<TabStore>()(
   )
 )
 
-type Filters = {
-  name?: string
-  dueDate?: string
-  ownerId?: string
-  status?: string
-  tags?: string[]
-  estimatedPoints?: number
-}
-
-type FilterStore = {
-  filters: Filters
-  setFilter: <K extends keyof Filters>(
-    key: K,
-    value: Filters[K]
-  ) => void
-  clearFilters: () => void
-}
-
-export const useFilterStore = create<FilterStore>(
-  (set) => ({
-    filters: {},
-    setFilter: (key, value) =>
-      set((state) => ({
-        filters: { ...state.filters, [key]: value },
-      })),
-    clearFilters: () => set({ filters: {} }),
-  })
-)
-
 type TaskStore = {
   currentTask: Task | null
   mode: "create" | "edit"
@@ -89,3 +60,46 @@ export const useUserStore = create<userStore>((set) => ({
   id: "a7a84bd3-5dca-438c-8030-8bc5a0c194c0",
   setId: (id) => set({ id: id }),
 }))
+
+interface SearchFormState {
+  name?: string
+  pointEstimate?: string
+  ownerId?: string
+  status?: string
+  tags: string[]
+  dueDate: Date | undefined
+  setField: <K extends keyof SearchFormState>(
+    field: K,
+    value: SearchFormState[K]
+  ) => void
+  reset: () => void
+}
+
+export const useSearchFormStore = create<SearchFormState>()(
+  persist(
+    (set) => ({
+      name: undefined,
+      pointEstimate: undefined,
+      ownerId: undefined,
+      status: undefined,
+      tags: [],
+      dueDate: undefined,
+
+      setField: (field, value) =>
+        set(() => ({ [field]: value })),
+
+      reset: () =>
+        set({
+          name: undefined,
+          pointEstimate: undefined,
+          ownerId: undefined,
+          status: undefined,
+          tags: [],
+          dueDate: undefined,
+        }),
+    }),
+    {
+      name: "search-form",
+    }
+  )
+)
