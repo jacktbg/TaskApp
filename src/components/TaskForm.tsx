@@ -53,14 +53,16 @@ const createTaskSchema = z.object({
       ])
     )
     .min(1, "Label required"),
-  dueDate: z.date().refine(
-    (date) => {
-      const today = new Date()
-      today.setHours(0, 0, 0, 0) // clear time
-      return date >= today
-    },
-    { message: "Due date must be today or later" }
-  ),
+  dueDate: z
+    .date({ required_error: "Due date required" })
+    .refine(
+      (date) => {
+        const today = new Date()
+        today.setHours(0, 0, 0, 0)
+        return date >= today
+      },
+      { message: "Due date must be today or later" }
+    ),
 })
 
 type CreateTaskForm = z.infer<typeof createTaskSchema>

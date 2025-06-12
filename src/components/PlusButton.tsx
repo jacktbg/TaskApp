@@ -27,18 +27,25 @@ export const PlusButton: React.FC = () => {
           </div>
         </button>
       </Dialog.Trigger>
-      <Dialog.Portal>
+      <Dialog.Portal container={document.body}>
         <Dialog.Overlay className={styles.overlay} />
         <Dialog.Content>
-          <VisuallyHidden.Root asChild>
+          <TaskForm setOpen={setOpen} />
+          <VisuallyHidden.Root
+            className={styles.titleRadix}
+            asChild
+          >
             <Dialog.Title>Create Task Tittle</Dialog.Title>
           </VisuallyHidden.Root>
-          <VisuallyHidden.Root>
-            <Dialog.Description>
+          <VisuallyHidden.Root
+            className={styles.descriptionRadix}
+          >
+            <Dialog.Description
+              className={styles.descriptionRadix}
+            >
               It's a form that lets you create a Task
             </Dialog.Description>
           </VisuallyHidden.Root>
-          <TaskForm setOpen={setOpen} />
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

@@ -9,7 +9,7 @@ export const Searchbar = () => {
   return (
     <section className={styles.searchbarContainer}>
       <div className={styles.searchbarWrapper}>
-        <InputWrapper setFocus={setFocus} />
+        <InputWrapper setFocus={setFocus} focus={focus} />
 
         {focus ? (
           <div className={styles.iconWrapper}>

@@ -16,6 +16,7 @@ import type { DragEndEvent } from "@dnd-kit/core"
 import { UPDATE_TASK_MUTATION } from "../../../../services/mutations"
 import { ColumnBody } from "./components/ColumnBody"
 import { useDebounce } from "../../../../utilities/useDebounce"
+import { DashboardSkeleton } from "./components/DashboardSkeleton"
 
 const statusMap: Record<string, Status> = {
   Working: "TODO",
@@ -97,7 +98,7 @@ export const Dashboard: React.FC = () => {
     }, {} as Record<Status, Task[]>)
   }, [tasks])
 
-  if (loading) return <p>Loading tasks...</p>
+  if (loading) return <DashboardSkeleton />
   if (error)
     return <p>Error loading tasks: {error.message}</p>
 
@@ -107,6 +108,11 @@ export const Dashboard: React.FC = () => {
 
     const taskId = active.id
     const newStatus = over.id as Status
+
+    const task = tasks.find((t) => t.id === taskId)
+    if (!task) return
+
+    if (task.status === newStatus) return
 
     try {
       await updateTask({

@@ -4,6 +4,7 @@ import { AssigneeTagOptions } from "./AssigneeTagOptions"
 import { useEffect, useState } from "react"
 import { Popover } from "radix-ui"
 import { useTaskStore } from "../store/useStore"
+import { ProfileImage } from "../pages/home/components/ui/ProfileImage"
 
 interface AssigneeTagProps {
   assigneeId: string
@@ -37,11 +38,7 @@ export const AssigneeTag: React.FC<AssigneeTagProps> = ({
           }
         >
           {image ? (
-            <img
-              className={styles.image}
-              src={image}
-              alt="profile image"
-            />
+            <ProfileImage avatar={image} />
           ) : (
             <div className={styles.iconWrapper}>
               <AssigneeIcon

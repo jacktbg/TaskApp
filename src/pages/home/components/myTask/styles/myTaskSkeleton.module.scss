@@ -1,0 +1,30 @@
+.myTaskContainer {
+  display: flex;
+  flex-direction: column;
+  width: clamp(10rem, 76.945vw, 300rem);
+  flex: 1;
+  margin-top: clamp(24px, 1.667vw, 30rem);
+  row-gap: clamp(1rem, 1.112vw, 30rem);
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .myTaskContainer {
+    margin-top: 1rem;
+    width: calc(100% - 1rem);
+    margin-left: 1rem;
+    max-height: 40rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .myTaskContainer {
+    margin-left: clamp(16px, 4.103vw, 5rem);
+    max-height: 593px;
+  }
+}

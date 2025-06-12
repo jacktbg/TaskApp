@@ -14,7 +14,7 @@ export const BodyContainer = () => {
   return (
     <div className={styles.bodyContainer}>
       <Searchbar />
-      <Topbar />
+      {activeComponent !== "my profile" && <Topbar />}
       {activeComponent === "dashboard" ? (
         <Dashboard />
       ) : activeComponent === "my task" ? (

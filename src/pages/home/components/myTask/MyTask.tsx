@@ -20,6 +20,7 @@ import {
   type DragEndEvent,
 } from "@dnd-kit/core"
 import { useDebounce } from "../../../../utilities/useDebounce"
+import { MyTaskSkeleton } from "./components/MyTaskSkeleton"
 
 const statusMap: Record<string, Status> = {
   Backlog: "BACKLOG",
@@ -97,7 +98,7 @@ export const MyTask = () => {
     }, {} as Record<string, Task[]>)
   }, [tasks])
 
-  if (loading) return <p>Loading tasks...</p>
+  if (loading) return <MyTaskSkeleton />
   if (error)
     return <p>Error loading tasks: {error.message}</p>
 
@@ -106,7 +107,12 @@ export const MyTask = () => {
     if (!over || active.id === over.id) return
 
     const taskId = active.id
-    const newStatus = over.id // should be the status like "IN_PROGRESS"
+    const newStatus = over.id as Status
+
+    const task = tasks.find((t) => t.id === taskId)
+    if (!task) return
+
+    if (task.status === newStatus) return
 
     try {
       await updateTask({
