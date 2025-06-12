@@ -10,9 +10,15 @@
     width: clamp(20px, 1.39vw, 30rem);
     color: var(--color-neutral-2);
   }
-  .image {
-    height: 100%;
+  .profileWrapper {
+    cursor: pointer;
+    width: clamp(2.5rem, 2.778vw, 30rem);
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
+
+    .image {
+      height: 100%;
+    }
   }
 }
 
