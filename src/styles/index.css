@@ -92,6 +92,12 @@ th {
   --color-tertiary-4: #e5b454;
 }
 
-/* Dark theme */
-[data-theme="dark"] {
+/* Light theme */
+[data-theme="light"] {
+  --color-neutral-1: #1e1e1e; /* Text color - dark */
+  --color-neutral-2: #6b6e70; /* Secondary text - slightly muted */
+  --color-neutral-2-transparent: rgba(107, 110, 112, 0.1);
+  --color-neutral-3: #f0f0f0; /* Popout background - light gray */
+  --color-neutral-4: #fff1fe; /* Component background - very light */
+  --color-neutral-5: #ffbaba; /* Main background - pure white */
 }

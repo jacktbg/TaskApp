@@ -6,26 +6,24 @@ import { Error } from "./pages/error/Error"
 import { Home } from "./pages/home/Home"
 import { useEffect, useState } from "react"
 import { LoadingScreen } from "./components/LoadingScreen"
+import { useThemeStore } from "./store/useStore"
 
 export const App = () => {
-  // const theme = useThemeStore((state) => state.theme)
+  const theme = useThemeStore((state) => state.theme)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Set theme on load
-    // document.documentElement.setAttribute(
-    //   "data-theme",
-    //   theme
-    // )
+    document.documentElement.setAttribute(
+      "data-theme",
+      theme
+    )
 
-    // Simulate load or wait for actual readiness
     const timeout = setTimeout(() => {
       setIsLoading(false)
     }, 1000)
 
     return () => clearTimeout(timeout)
-    // }, [theme])
-  }, [])
+  }, [theme])
   return (
     <ErrorBoundary
       FallbackComponent={Error}

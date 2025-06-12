@@ -103,3 +103,23 @@ export const useSearchFormStore = create<SearchFormState>()(
     }
   )
 )
+
+type Theme = "light" | "dark"
+
+type ThemeState = {
+  theme: Theme
+  toggleTheme: () => void
+}
+
+export const useThemeStore = create<ThemeState>()(
+  persist(
+    (set, get) => ({
+      theme: "dark",
+      toggleTheme: () =>
+        set({
+          theme: get().theme === "light" ? "dark" : "light",
+        }),
+    }),
+    { name: "theme-mode" }
+  )
+)
