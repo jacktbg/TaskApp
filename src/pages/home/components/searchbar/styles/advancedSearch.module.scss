@@ -86,6 +86,7 @@
 }
 
 .button {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -97,7 +98,11 @@
   background: var(--color-neutral-3);
   font-size: clamp(15px, 1.042vw, 4rem);
 }
-
+.datePickerWrapper {
+  margin-right: 10rem; // Or however far you want it moved
+  position: relative;
+  z-index: 5; // Ensure it's on top if overlapping is needed
+}
 .iconWrapper {
   position: absolute;
   top: 5px;

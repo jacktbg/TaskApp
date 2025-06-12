@@ -147,13 +147,18 @@ export const AdvancedSearch = () => {
           {dueDate ? dueDateFormatter(dueDate) : "DUE DATE"}
         </button>
         {show && (
-          <DueDateTagOptions
-            startDate={dueDate}
-            setStartDate={(selectedDate) => {
-              setField("dueDate", selectedDate)
-              setShow(false)
-            }}
-          />
+          <div className={styles.datePickerWrapper}>
+            <DueDateTagOptions
+              startDate={dueDate ? new Date(dueDate) : null}
+              setStartDate={(selectedDate) => {
+                setField(
+                  "dueDate",
+                  selectedDate ? selectedDate : undefined
+                )
+                setShow(false)
+              }}
+            />
+          </div>
         )}
       </div>
       <div
