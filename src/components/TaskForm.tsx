@@ -17,6 +17,7 @@ import {
   useSearchFormStore,
   useTabStore,
   useTaskStore,
+  useToastStore,
   useUserStore,
 } from "../store/useStore"
 import { useEffect, useMemo } from "react"
@@ -67,6 +68,9 @@ type CreateTaskForm = z.infer<typeof createTaskSchema>
 export const TaskForm: React.FC<TaskFormProps> = ({
   setOpen,
 }) => {
+  const showToast = useToastStore(
+    (state) => state.showToast
+  )
   const taskToEdit = useTaskStore(
     (state) => state.currentTask
   )
@@ -161,6 +165,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     ],
     awaitRefetchQueries: true,
     onCompleted: (data) => {
+      showToast("✅ Task created successfully!")
       console.log("✅ Task created:", data)
       reset()
       setOpen(false)
@@ -189,6 +194,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     ],
     awaitRefetchQueries: true,
     onCompleted: (data) => {
+      showToast("✅ Task updated successfully!")
       console.log("✅ Task updated:", data)
       reset()
       setOpen(false)

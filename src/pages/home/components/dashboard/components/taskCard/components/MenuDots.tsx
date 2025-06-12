@@ -15,6 +15,7 @@ import {
 import {
   useSearchFormStore,
   useTabStore,
+  useToastStore,
   useUserStore,
 } from "../../../../../../../store/useStore"
 import { useMemo } from "react"
@@ -27,6 +28,9 @@ interface MenuDotsProps {
 export const MenuDots: React.FC<MenuDotsProps> = ({
   task,
 }) => {
+  const showToast = useToastStore(
+    (state) => state.showToast
+  )
   const id = useUserStore((state) => state.id)
 
   const activeTab = useTabStore((state) => state.activeTab)
@@ -86,6 +90,7 @@ export const MenuDots: React.FC<MenuDotsProps> = ({
     ],
     awaitRefetchQueries: true,
     onCompleted: () => {
+      showToast("✅ Task deleted successfully!")
       console.log("✅ Task deleted")
     },
     onError: (error) => {
