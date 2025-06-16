@@ -4,7 +4,11 @@ import type { Task } from "../pages/home/models/taskProps"
 
 type Tab = "all" | "mine"
 type Component = "dashboard" | "my task" | "my profile"
-type Highlight = "dashboard" | "my task" | "my profile"
+type Highlight =
+  | "dashboard"
+  | "my task"
+  | "my profile"
+  | "plus button"
 
 interface TabStore {
   activeTab: Tab

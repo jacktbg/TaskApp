@@ -70,6 +70,9 @@
     &:active {
       color: var(--color-primary-4);
     }
+    &.active {
+      color: var(--color-primary-4);
+    }
     .title {
       font-weight: 400;
       font-size: 13px;

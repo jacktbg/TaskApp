@@ -104,28 +104,33 @@ export const MenuDots: React.FC<MenuDotsProps> = ({
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
-        <div className={styles.iconWrapper}>
+        <div
+          className={styles.iconWrapper}
+          onPointerDown={(e) => e.stopPropagation()}
+        >
           <ThreeDotsIcon className={styles.icon} />
         </div>
       </Popover.Trigger>
       <Popover.Anchor />
-      <Popover.Portal>
-        <Popover.Content side={"bottom"} align={"end"}>
-          <div className={styles.optionsContainer}>
-            <EditOption task={task} />
-            <div
-              className={styles.option}
-              onClick={() => deleteTask()}
-            >
-              <div className={styles.iconWrapper}>
-                <DeleteIcon className={styles.delete} />
-              </div>
-              <p className={styles.text}>Delete</p>
+      <Popover.Content
+        side={"bottom"}
+        align={"end"}
+        onPointerDown={(e) => e.stopPropagation()}
+      >
+        <div className={styles.optionsContainer}>
+          <EditOption task={task} />
+          <div
+            className={styles.option}
+            onClick={() => deleteTask()}
+          >
+            <div className={styles.iconWrapper}>
+              <DeleteIcon className={styles.delete} />
             </div>
+            <p className={styles.text}>Delete</p>
           </div>
-          <Popover.Close />
-        </Popover.Content>
-      </Popover.Portal>
+        </div>
+        <Popover.Close />
+      </Popover.Content>
     </Popover.Root>
   )
 }

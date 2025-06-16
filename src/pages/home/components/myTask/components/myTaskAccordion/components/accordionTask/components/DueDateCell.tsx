@@ -11,7 +11,9 @@ export const DueDateCell: React.FC<DueDateCellProps> = ({
 }) => {
   return (
     <div className={styles.container}>
-      <CellText>{dueDateFormatter(dueDate)}</CellText>
+      <CellText className={styles.text}>
+        {dueDateFormatter(dueDate)}
+      </CellText>
     </div>
   )
 }

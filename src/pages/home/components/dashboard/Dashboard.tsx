@@ -79,9 +79,6 @@ export const Dashboard: React.FC = () => {
       ? { input: cleanedFilters }
       : { input: { ...cleanedFilters, assigneeId: id } }
 
-  console.log("cleanedFilters: ", cleanedFilters)
-  console.log("variables: ", variables)
-
   const { data, loading, error } = useQuery(query, {
     variables,
   })

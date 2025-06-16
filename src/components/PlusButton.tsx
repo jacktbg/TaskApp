@@ -5,19 +5,52 @@ import {
   PlusIcon,
   PlusMobileIcon,
 } from "../pages/home/icons/Icons"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useTabStore } from "../store/useStore"
 
 export const PlusButton: React.FC = () => {
+  const activeHighlight = useTabStore(
+    (state) => state.activeHighlight
+  )
+  const setActiveHighlight = useTabStore(
+    (state) => state.setActiveHighlight
+  )
   const [open, setOpen] = useState<boolean>(false)
+  const [isModal, setIsModal] = useState<boolean>(
+    window.innerWidth > 900
+  )
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsModal(window.innerWidth > 900)
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () =>
+      window.removeEventListener("resize", handleResize)
+  }, [])
   return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
+    <Dialog.Root
+      open={open}
+      onOpenChange={setOpen}
+      modal={isModal}
+    >
       <Dialog.Trigger asChild>
         <button
           className={styles.plusContainer}
           onClick={() => setOpen(true)}
         >
           <PlusIcon className={styles.plus} />
-          <div className={styles.plusMobileContainer}>
+          <div
+            onClick={() =>
+              setActiveHighlight("plus button")
+            }
+            className={
+              activeHighlight === "plus button"
+                ? `${styles.plusMobileContainer} ${styles.active}`
+                : styles.plusMobileContainer
+            }
+          >
             <div className={styles.plusMobileWrapper}>
               <PlusMobileIcon
                 className={styles.plusMobile}
