@@ -125,9 +125,10 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     handleSubmit,
     control,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<CreateTaskForm>({
     resolver: zodResolver(createTaskSchema),
+    mode: "onChange",
     defaultValues: {
       name: "",
       assigneeId: "",
@@ -325,7 +326,15 @@ export const TaskForm: React.FC<TaskFormProps> = ({
             </div>
           </button>
         </Dialog.Close>
-        <button type="submit" className={styles.create}>
+        <button
+          type="submit"
+          disabled={!isValid}
+          className={
+            isValid
+              ? `${styles.active} ${styles.create}`
+              : styles.create
+          }
+        >
           {mode === "edit" ? "Update" : "Create"}
         </button>
       </div>

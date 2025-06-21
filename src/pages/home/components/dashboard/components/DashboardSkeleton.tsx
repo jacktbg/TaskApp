@@ -26,12 +26,12 @@ const tasksByStatus: Record<Status, Task[]> = {
       assignee: {
         avatar:
           "https://avatars.dicebear.com/api/initials/jd.svg",
-        fullName: "Jhon Doe",
+        fullName: "...",
       },
       position: 2,
       creator: {
         id: "a35d73eb-6829-4a92-ab82-43fe987ae02f",
-        fullName: "Jhon Doe",
+        fullName: "...",
       },
     },
   ],
@@ -46,12 +46,12 @@ const tasksByStatus: Record<Status, Task[]> = {
       assignee: {
         avatar:
           "https://avatars.dicebear.com/api/initials/jd.svg",
-        fullName: "Jhon Doe",
+        fullName: "...",
       },
       position: 2,
       creator: {
         id: "a35d73eb-6829-4a92-ab82-43fe987ae02f",
-        fullName: "Jhon Doe",
+        fullName: "...",
       },
     },
   ],

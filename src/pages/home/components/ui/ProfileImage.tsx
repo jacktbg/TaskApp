@@ -1,5 +1,5 @@
 import styles from "./styles/profileImage.module.scss"
-import profile from "../../../../assets/profile.png"
+import profile from "../../../../assets/myProfile.png"
 import React from "react"
 
 interface ProfileImageProps {
@@ -13,9 +13,8 @@ const transformDicebearUrl = (url: string): string => {
   const match = url.match(regex)
 
   if (match) {
-    const styleName = match[1] // e.g., "initials"
-    const seed = match[2] // e.g., "jd"
-    return `https://api.dicebear.com/9.x/${styleName}/svg?seed=${seed}`
+    const seed = match[2]
+    return `https://api.dicebear.com/9.x/adventurer-neutral/svg?seed=${seed}`
   }
 
   return url // return original if it doesn't match expected pattern

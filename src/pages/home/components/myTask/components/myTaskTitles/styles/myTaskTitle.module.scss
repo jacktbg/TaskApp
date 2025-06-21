@@ -1,7 +1,6 @@
 .wrapper {
   display: flex;
   align-items: center;
-  // width: clamp(945px, auto, auto);
   height: clamp(3.5rem, 3.89vw, 300rem);
   background: var(--color-neutral-4);
   border: clamp(1px, 0.1vw, 10rem) solid
@@ -9,7 +8,7 @@
   border-left: 0;
   padding-left: clamp(1rem, 1.112vw, 30rem);
 
-  .titles {
+  .title {
     display: flex;
     align-items: center;
     font-weight: 400;

@@ -52,19 +52,8 @@
 @media screen and (max-width: 900px) {
   .table {
     margin-top: 1rem;
-    width: calc(100% - 1rem);
+    width: 100%;
+    max-height: 75vh;
     margin-left: 1rem;
-    max-height: 40rem;
-  }
-}
-
-@media (pointer: coarse) {
-  .myTaskContainer {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
   }
 }

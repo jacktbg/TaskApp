@@ -11,7 +11,7 @@ export const MyTaskTitle: React.FC<MyTaskTitleProps> = ({
 }) => {
   return (
     <div className={`${styles.wrapper} ${styles[width]}`}>
-      <h2 className={styles.titles}>{title}</h2>
+      <h2 className={styles.title}>{title}</h2>
     </div>
   )
 }

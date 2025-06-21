@@ -12,7 +12,6 @@ const httpLink = new HttpLink({
 
 const authLink = setContext((_, { headers }) => {
   const token = import.meta.env.VITE_GRAPHQL_API_TOKEN
-  console.log(token)
   return {
     headers: {
       ...headers,

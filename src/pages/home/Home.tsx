@@ -5,7 +5,7 @@ import styles from "./styles/home.module.scss"
 
 export const Home: React.FC = () => {
   return (
-    <div className={styles.dashboardContainer}>
+    <div className={styles.homeContainer}>
       <Sidebar />
       <BodyContainer />
       <Toast />

@@ -8,6 +8,11 @@
   border-radius: clamp(0.5rem, 0.556vw, 10rem);
   row-gap: clamp(1rem, 1.112vw, 2rem);
   cursor: grab;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 1rem 0 var(--color-primary-4);
+  }
 }
 
 .hand {

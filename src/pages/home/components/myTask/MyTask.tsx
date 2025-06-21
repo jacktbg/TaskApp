@@ -7,7 +7,12 @@ import {
   GET_MY_TASK,
   GET_TASKS,
 } from "../../../../services/queries"
-import { useMemo } from "react"
+import {
+  startTransition,
+  useEffect,
+  useMemo,
+  useState,
+} from "react"
 import {
   useSearchFormStore,
   useTabStore,
@@ -88,15 +93,23 @@ export const MyTask = () => {
   })
 
   const tasks: Task[] = data?.tasks || []
+  const [displayTasks, setDisplayTasks] = useState<Task[]>(
+    []
+  )
 
+  useEffect(() => {
+    if (data?.tasks) {
+      setDisplayTasks(data.tasks)
+    }
+  }, [data?.tasks])
   const tasksByStatus = useMemo(() => {
     return accordionTitles.reduce((acc, title) => {
-      acc[title] = tasks.filter(
+      acc[title] = displayTasks.filter(
         (task) => task.status === statusMap[title]
       )
       return acc
     }, {} as Record<string, Task[]>)
-  }, [tasks])
+  }, [displayTasks])
 
   if (loading) return <MyTaskSkeleton />
   if (error)
@@ -114,6 +127,13 @@ export const MyTask = () => {
 
     if (task.status === newStatus) return
 
+    startTransition(() => {
+      setDisplayTasks((prev) =>
+        prev.map((t) =>
+          t.id === task.id ? { ...t, status: newStatus } : t
+        )
+      )
+    })
     try {
       await updateTask({
         variables: {

@@ -1,6 +1,6 @@
 .container {
-  flex: 1;
-  flex-shrink: 0;
+  background: var(--color-neutral-4);
+  flex: 1 0 7.75rem;
   display: flex;
   align-items: center;
   padding-left: clamp(0.5rem, 0.556vw, 10rem);

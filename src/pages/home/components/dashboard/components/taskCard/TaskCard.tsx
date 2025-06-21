@@ -36,7 +36,7 @@ export const TaskCard = React.memo(
       boxShadow: isDragging
         ? "0 6px 20px rgba(0, 0, 0, 0.15)"
         : "0 1px 4px rgba(0, 0, 0, 0.08)",
-      zIndex: isDragging ? 10 : undefined,
+      zIndex: isDragging ? 0 : undefined,
     }
     return (
       <td

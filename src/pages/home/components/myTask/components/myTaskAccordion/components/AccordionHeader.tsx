@@ -17,22 +17,41 @@ export const AccordionHeader: React.FC<
   return (
     <Accordion.Header asChild>
       <Accordion.Trigger
-        className={styles.wrapper}
+        className={styles.container}
         onClick={() => setCollapse((prev) => !prev)}
       >
-        <div className={styles.iconWrapper}>
-          <CollapseArrowIcon
-            className={
-              collapse
-                ? `${styles.icon} ${styles.collapse}`
-                : styles.icon
-            }
-          />
+        <div
+          className={`${styles.wrapper} ${styles.principal}`}
+        >
+          <div className={styles.iconWrapper}>
+            <CollapseArrowIcon
+              className={
+                collapse
+                  ? `${styles.icon} ${styles.collapse}`
+                  : styles.icon
+              }
+            />
+          </div>
+          <h3 className={styles.title}>
+            {title}
+            <span className={styles.counter}>
+              {counter}
+            </span>
+          </h3>
         </div>
-        <h3 className={styles.title}>
-          {title}
-          <span className={styles.counter}>{counter}</span>
-        </h3>
+
+        <div
+          className={`${styles.wrapper} ${styles.tags}`}
+        ></div>
+        <div
+          className={`${styles.wrapper} ${styles.estimate}`}
+        ></div>
+        <div
+          className={`${styles.wrapper} ${styles.assignee}`}
+        ></div>
+        <div
+          className={`${styles.wrapper} ${styles.dueDate}`}
+        ></div>
       </Accordion.Trigger>
     </Accordion.Header>
   )

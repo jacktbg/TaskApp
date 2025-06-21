@@ -5,7 +5,12 @@ import {
   GET_MY_TASK,
   GET_TASKS,
 } from "../../../../services/queries"
-import { useMemo } from "react"
+import {
+  startTransition,
+  useEffect,
+  useMemo,
+  useState,
+} from "react"
 import {
   useSearchFormStore,
   useTabStore,
@@ -85,15 +90,25 @@ export const Dashboard: React.FC = () => {
 
   const tasks: Task[] = data?.tasks || []
 
+  const [displayTasks, setDisplayTasks] = useState<Task[]>(
+    []
+  )
+
+  useEffect(() => {
+    if (data?.tasks) {
+      setDisplayTasks(data.tasks)
+    }
+  }, [data?.tasks])
+
   const tasksByStatus = useMemo(() => {
     return titles.reduce((acc, title) => {
       const status = statusMap[title]
-      acc[status] = tasks.filter(
+      acc[status] = displayTasks.filter(
         (task) => task.status === status
       )
       return acc
     }, {} as Record<Status, Task[]>)
-  }, [tasks])
+  }, [displayTasks])
 
   if (loading) return <DashboardSkeleton />
   if (error)
@@ -111,6 +126,13 @@ export const Dashboard: React.FC = () => {
 
     if (task.status === newStatus) return
 
+    startTransition(() => {
+      setDisplayTasks((prev) =>
+        prev.map((t) =>
+          t.id === task.id ? { ...t, status: newStatus } : t
+        )
+      )
+    })
     try {
       await updateTask({
         variables: {
