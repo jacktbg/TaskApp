@@ -6,7 +6,7 @@ import { dueDateFormatter } from "../../utilities/dueDateFormatter"
 
 export const MyProfile = () => {
   const { data, loading, error } = useQuery(GET_PROFILE)
-  if (loading) return <p>Loading tasks...</p>
+  if (loading) return <p>Loading...</p>
   if (error)
     return <p>Error loading tasks: {error.message}</p>
   const { profile } = data
