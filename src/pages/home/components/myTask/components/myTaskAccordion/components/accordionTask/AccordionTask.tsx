@@ -50,7 +50,11 @@ const AccordionTaskComponent: React.FC<
       style={style}
     >
       <div className={styles.taskContainer}>
-        <NameCell position={position} name={name} />
+        <NameCell
+          position={position}
+          name={name}
+          dueDate={dueDate}
+        />
         <TagCell tags={tags} />
         <EstimateCell pointEstimate={pointEstimate} />
         <AssignNameCell assignee={assignee} />

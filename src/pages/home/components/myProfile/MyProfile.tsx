@@ -23,9 +23,14 @@ export const MyProfile = () => {
           <div className={`${styles.cell1} ${styles.cell}`}>
             Type
           </div>
-          <div className={`${styles.cell2} ${styles.cell}`}>
+          <a
+            href="https://www.linkedin.com/in/jacktbg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.cell2} ${styles.cell} ${styles.link}`}
+          >
             Full Stack
-          </div>
+          </a>
         </div>
 
         <div className={styles.row}>
@@ -52,7 +57,7 @@ export const MyProfile = () => {
             rel="noopener noreferrer"
             className={`${styles.cell2} ${styles.cell} ${styles.link}`}
           >
-            https://github.com/jacktbg
+            jacktbg
           </a>
         </div>
 

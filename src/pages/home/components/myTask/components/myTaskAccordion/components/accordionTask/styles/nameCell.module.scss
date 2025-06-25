@@ -37,14 +37,14 @@
   }
 }
 
-.green {
-  background: var(--color-secondary-4);
-}
-
-.red {
+.late {
   background: var(--color-primary-4);
 }
 
-.yellow {
+.warning {
   background: var(--color-tertiary-4);
+}
+
+.ontime {
+  background: var(--color-secondary-4);
 }
