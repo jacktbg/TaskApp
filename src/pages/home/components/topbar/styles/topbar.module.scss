@@ -24,11 +24,7 @@
     }
 
     &:hover {
-      background: linear-gradient(
-        90deg,
-        rgba(186, 37, 37, 0) 0%,
-        rgba(210, 77, 77, 0.1) 100%
-      );
+      background: var(--color-hover);
     }
     &:hover .icon {
       color: var(--color-primary-4);
@@ -37,11 +33,7 @@
     &.active {
       border-radius: clamp(0.5rem, 0.556vw, 4rem);
       border: 1px solid var(--color-primary-4);
-      background: linear-gradient(
-        90deg,
-        rgba(186, 37, 37, 0) 0%,
-        rgba(210, 77, 77, 0.1) 100%
-      );
+      background: var(--color-hover);
 
       .icon {
         color: var(--color-primary-4);

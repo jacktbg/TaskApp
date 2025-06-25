@@ -24,13 +24,12 @@ export const CounterTooltip: React.FC<CounterTooltip> = ({
           </div>
         </Tooltip.Trigger>
         <Tooltip.Portal>
-          <Tooltip.Content
-            className={styles.Content}
-            sideOffset={5}
-          >
-            {tags.map((tag) => (
-              <Tag tag={tag} key={tag} />
-            ))}
+          <Tooltip.Content sideOffset={5}>
+            <div className={styles.content}>
+              {tags.map((tag) => (
+                <Tag tag={tag} key={tag} />
+              ))}
+            </div>
             <Tooltip.Arrow className={styles.arrow} />
           </Tooltip.Content>
         </Tooltip.Portal>

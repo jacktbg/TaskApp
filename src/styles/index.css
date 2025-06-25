@@ -90,14 +90,51 @@ th {
   --color-tertiary-2: #f2daab;
   --color-tertiary-3: #ebc77f;
   --color-tertiary-4: #e5b454;
+
+  --color-hover: linear-gradient(
+    90deg,
+    rgba(186, 37, 37, 0) 0%,
+    rgba(210, 77, 77, 0.1) 100%
+  );
 }
 
 /* Light theme */
 [data-theme="light"] {
-  --color-neutral-1: #1e1e1e; /* Text color - dark */
-  --color-neutral-2: #6b6e70; /* Secondary text - slightly muted */
-  --color-neutral-2-transparent: rgba(107, 110, 112, 0.1);
-  --color-neutral-3: #f0f0f0; /* Popout background - light gray */
-  --color-neutral-4: #fff1fe; /* Component background - very light */
-  --color-neutral-5: #ffd8d8; /* Main background - pure white */
+  /* Neutral colors (light background, dark text) */
+  --color-neutral-1: #1f1f1f; /* Main text (was white) */
+  --color-neutral-2: #5e5e5e; /* Secondary text (was #94979a) */
+  --color-neutral-2-transparent: rgba(
+    94,
+    94,
+    94,
+    0.1
+  ); /* subtle highlight */
+  --color-neutral-3: #f4f1ec; /* background paper */
+  --color-neutral-4: #fdfcf9; /* main background */
+  --color-neutral-5: #f9f6f1; /* slight contrast background */
+
+  /* Primary (soft reds/peaches) */
+  --color-primary-1: #fff3f1; /* lightest shade */
+  --color-primary-2: #fcd8d3;
+  --color-primary-3: #f4aaa1;
+  --color-primary-4: #e77c6f; /* main accent color */
+
+  /* Secondary (fresh greens) */
+  --color-secondary-1: #eaf7e5;
+  --color-secondary-2: #cce9c3;
+  --color-secondary-3: #abdca0;
+  --color-secondary-4: #88ce7e;
+
+  /* Tertiary (warm beige / gold) */
+  --color-tertiary-1: #fbf5ea;
+  --color-tertiary-2: #f4e6c7;
+  --color-tertiary-3: #edd6a4;
+  --color-tertiary-4: #e6c581;
+
+  /* Hover effect (lighter than original, but still subtle) */
+  --color-hover: linear-gradient(
+    90deg,
+    rgba(255, 163, 163, 0) 0%,
+    rgba(255, 163, 163, 0.1) 100%
+  );
 }

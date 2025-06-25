@@ -19,20 +19,49 @@ export const MyProfile = () => {
       />
       <p className={styles.fullName}>{profile.fullName}</p>
       <div className={styles.descriptionContainer}>
-        <div className={styles.column1}>
-          <div className={styles.cell}>Type</div>
-          <div className={styles.cell}>Email</div>
-          <div className={styles.cell}>Created At</div>
-          <div className={styles.cell}>Updated At</div>
-        </div>
-        <div className={styles.column2}>
-          <div className={styles.cell}>{profile.type}</div>
-          <div className={styles.cell}>{profile.email}</div>
-          <div className={styles.cell}>
-            {dueDateFormatter(profile.createdAt)}
+        <div className={styles.row}>
+          <div className={`${styles.cell1} ${styles.cell}`}>
+            Type
           </div>
-          <div className={styles.cell}>
-            {dueDateFormatter(profile.updatedAt)}
+          <div className={`${styles.cell2} ${styles.cell}`}>
+            Full Stack
+          </div>
+        </div>
+
+        <div className={styles.row}>
+          <div className={`${styles.cell1} ${styles.cell}`}>
+            Email
+          </div>
+          <a
+            href="mailto:jack.bustinza.work@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.cell2} ${styles.cell} ${styles.link}`}
+          >
+            jack.bustinza.work@gmail.com
+          </a>
+        </div>
+
+        <div className={styles.row}>
+          <div className={`${styles.cell1} ${styles.cell}`}>
+            Github
+          </div>
+          <a
+            href="https://github.com/jacktbg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.cell2} ${styles.cell} ${styles.link}`}
+          >
+            https://github.com/jacktbg
+          </a>
+        </div>
+
+        <div className={styles.row}>
+          <div className={`${styles.cell1} ${styles.cell}`}>
+            Created At
+          </div>
+          <div className={`${styles.cell2} ${styles.cell}`}>
+            {dueDateFormatter(profile.createdAt)}
           </div>
         </div>
       </div>

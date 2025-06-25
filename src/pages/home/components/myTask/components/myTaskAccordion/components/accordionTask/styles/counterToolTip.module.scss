@@ -5,10 +5,26 @@
   justify-content: center;
   width: clamp(3.25rem, 3.612vw, 30rem);
   height: clamp(2rem, 2.223vw, 30rem);
+  border-radius: clamp(4px, 0.278vw, 10rem);
   .bold {
     font-weight: 600;
   }
 }
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: var(--color-neutral-3);
+  border-radius: clamp(4px, 0.278vw, 10rem);
+
+  gap: clamp(1rem, 1.112vw, 5rem);
+
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.5rem, 0.556vw, 10rem);
+}
+
 .arrow {
   background: transparent;
   fill: var(--color-neutral-1);

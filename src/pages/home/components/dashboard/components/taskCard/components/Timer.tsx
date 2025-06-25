@@ -12,8 +12,8 @@ export const Timer: React.FC<TimerProps> = ({
   pointEstimate,
   dueDate,
 }) => {
-  const getDueDateStatus = (dueDateStr: string): string => {
-    const due = new Date(dueDateStr)
+  const getDueDateStatus = (dueDate: string): string => {
+    const due = new Date(dueDate)
     const now = new Date()
 
     // Strip time for accurate date comparison
