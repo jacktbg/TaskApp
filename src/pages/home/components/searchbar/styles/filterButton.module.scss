@@ -1,0 +1,22 @@
+.iconWrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2rem, 2.223vw, 10rem);
+  aspect-ratio: 1 / 1;
+  color: var(--color-neutral-2);
+  .icon {
+    width: clamp(1.25rem, 1.39vw, 20rem);
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+  &:hover {
+    color: var(--color-primary-4);
+  }
+
+  &.active {
+    color: var(--color-primary-4);
+  }
+}

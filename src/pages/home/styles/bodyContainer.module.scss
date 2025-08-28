@@ -1,0 +1,20 @@
+.bodyContainer {
+  position: relative;
+  display: flex;
+  flex: 1;
+  width: clamp(20rem, 79.445%, 300rem);
+  flex-direction: column;
+}
+
+@media screen and (max-width: 900px) {
+  .bodyContainer {
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .bodyContainer {
+    align-items: start;
+  }
+}

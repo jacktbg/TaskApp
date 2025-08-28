@@ -1,0 +1,66 @@
+.timer {
+  cursor: default;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: row;
+  width: 100%;
+  height: clamp(2rem, 2.223vw, 30rem);
+  justify-content: space-between;
+  align-items: center;
+
+  .points {
+    height: 1.667vw;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: clamp(15px, 1.042vw, 30rem);
+    line-height: 24px;
+    letter-spacing: 0.75px;
+  }
+
+  .dueDateContainer {
+    display: flex;
+    height: 100%;
+    padding: clamp(4px, 0.278vw, 30rem)
+      clamp(1rem, 1.112vw, 10rem);
+    background: var(--color-neutral-2-transparent);
+    border-radius: clamp(4px, 0.278vw, 30rem);
+    column-gap: clamp(0.5rem, 0.556vw, 30rem);
+
+    .iconWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(1.5rem, 1.667vw, 30rem);
+      aspect-ratio: 1 / 1;
+
+      .icon {
+        width: clamp(20.51px, 1.425vw, 30rem);
+      }
+    }
+    .dueDate {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: clamp(15px, 1.042vw, 30rem);
+      line-height: 24px;
+      letter-spacing: 0.75px;
+      text-transform: uppercase;
+    }
+    &.late {
+      background: var(--color-hover);
+    }
+  }
+}
+
+.late {
+  color: var(--color-primary-4);
+}
+
+.warning {
+  color: var(--color-tertiary-4);
+}
+
+.ontime {
+  color: var(--color-secondary-4);
+}

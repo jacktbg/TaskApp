@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from "react-router-dom"
+import { ErrorBoundary } from "react-error-boundary"
+import { logErrorToService } from "./utilities/errorHandler"
+import { NotFound } from "./pages/notFound/NotFound"
+import { Error } from "./pages/error/Error"
+import { Home } from "./pages/home/Home"
+import { useEffect, useState } from "react"
+import { LoadingScreen } from "./components/LoadingScreen"
+import { useThemeStore } from "./store/useStore"
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
+  const theme = useThemeStore((state) => state.theme)
+  const [isLoading, setIsLoading] = useState(true)
 
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      "data-theme",
+      theme
+    )
+
+    const timeout = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+
+    return () => clearTimeout(timeout)
+  }, [theme])
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <ErrorBoundary
+      FallbackComponent={Error}
+      onError={logErrorToService}
+    >
+      <Routes>
+        <Route
+          path="/"
+          element={isLoading ? <LoadingScreen /> : <Home />}
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </ErrorBoundary>
   )
 }
-
-export default App

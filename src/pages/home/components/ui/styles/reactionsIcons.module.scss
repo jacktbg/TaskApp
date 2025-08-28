@@ -1,0 +1,38 @@
+.iconsContainer {
+  width: clamp(106px, 7.362vw, 30rem);
+  height: clamp(1.5rem, 1.667vw, 5rem);
+  display: flex;
+  column-gap: clamp(1rem, 1.112vw, 20rem);
+  align-items: center;
+
+  .iconWrapper {
+    width: clamp(1rem, 1.112vw, 20rem);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .clip {
+      width: clamp(11.74px, 0.815vw, 10rem);
+      aspect-ratio: 1 / 1;
+    }
+
+    .thread {
+      width: clamp(12px, 0.834vw, 10rem);
+      aspect-ratio: 1 / 1;
+    }
+
+    .message {
+      width: clamp(13.33px, 0.926vw, 10rem);
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    height: 100%;
+    width: clamp(29px, 2.018vw, 10rem);
+    display: flex;
+    align-items: center;
+    column-gap: clamp(4px, 0.278vw, 10rem);
+  }
+}

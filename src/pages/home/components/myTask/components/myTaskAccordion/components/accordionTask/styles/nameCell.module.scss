@@ -1,0 +1,50 @@
+.container {
+  background: var(--color-neutral-4);
+  display: flex;
+  flex-shrink: 0;
+  width: clamp(337px, 34.723vw, 300rem);
+  height: clamp(3.5rem, 3.89vw, 300rem);
+  column-gap: clamp(0.5rem, 0.556vw, 10rem);
+  align-items: center;
+  border: clamp(1px, 0.1vw, 10rem) solid
+    var(--color-neutral-3);
+  border-right: none;
+  border-top: none;
+
+  .rectangleWrapper {
+    display: flex;
+    align-items: center;
+    width: 2.223vw;
+
+    .rectangle {
+      height: clamp(2.5rem, 2.778vw, 30rem);
+      width: clamp(4px, 0.278vw, 10rem);
+    }
+  }
+  .reactions {
+    cursor: default;
+    height: 100%;
+    margin-left: auto;
+    margin-right: clamp(1rem, 1.112vw, 10rem);
+    color: transparent;
+    transition: color 0.3s ease 0.1s;
+  }
+
+  &:hover {
+    .reactions {
+      color: var(--color-neutral-1);
+    }
+  }
+}
+
+.late {
+  background: var(--color-primary-4);
+}
+
+.warning {
+  background: var(--color-tertiary-4);
+}
+
+.ontime {
+  background: var(--color-secondary-4);
+}

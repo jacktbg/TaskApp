@@ -1,0 +1,140 @@
+/* Import Fonts */
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
+
+/* Global Reset & Normalization */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  font-family: "SF Pro Display", sans-serif;
+}
+
+/* Set base font-size and background */
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+  background-color: black;
+}
+
+body {
+  z-index: 0;
+}
+
+/* Basic element resets */
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Input normalizations */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  margin: 0;
+  display: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Optional: reset tables if needed */
+table,
+tr,
+td,
+th {
+  all: unset;
+  box-sizing: border-box;
+}
+
+/* Theme variables */
+:root {
+  --color-neutral-1: #ffffff;
+  --color-neutral-2: #94979a;
+  --color-neutral-2-transparent: rgba(148, 151, 154, 0.1);
+  --color-neutral-3: #393d41;
+  --color-neutral-4: #2c2f33;
+  --color-neutral-5: #222528;
+
+  --color-primary-1: #f4ccc8;
+  --color-primary-2: #eba59e;
+  --color-primary-3: #e27d73;
+  --color-primary-4: #da584b;
+
+  --color-secondary-1: #c8e1bc;
+  --color-secondary-2: #aad199;
+  --color-secondary-3: #8dc275;
+  --color-secondary-4: #70b252;
+
+  --color-tertiary-1: #f9eed7;
+  --color-tertiary-2: #f2daab;
+  --color-tertiary-3: #ebc77f;
+  --color-tertiary-4: #e5b454;
+
+  --color-hover: linear-gradient(
+    90deg,
+    rgba(186, 37, 37, 0) 0%,
+    rgba(210, 77, 77, 0.1) 100%
+  );
+}
+
+/* Light theme */
+[data-theme="light"] {
+  /* Neutral colors (light background, dark text) */
+  --color-neutral-1: #1f1f1f; /* Main text (was white) */
+  --color-neutral-2: #5e5e5e; /* Secondary text (was #94979a) */
+  --color-neutral-2-transparent: rgba(
+    94,
+    94,
+    94,
+    0.1
+  ); /* subtle highlight */
+  --color-neutral-3: #f4f1ec; /* background paper */
+  --color-neutral-4: #fdfcf9; /* main background */
+  --color-neutral-5: #f9f6f1; /* slight contrast background */
+
+  /* Primary (soft reds/peaches) */
+  --color-primary-1: #fff3f1; /* lightest shade */
+  --color-primary-2: #fcd8d3;
+  --color-primary-3: #f4aaa1;
+  --color-primary-4: #e77c6f; /* main accent color */
+
+  /* Secondary (fresh greens) */
+  --color-secondary-1: #eaf7e5;
+  --color-secondary-2: #cce9c3;
+  --color-secondary-3: #abdca0;
+  --color-secondary-4: #88ce7e;
+
+  /* Tertiary (warm beige / gold) */
+  --color-tertiary-1: #fbf5ea;
+  --color-tertiary-2: #f4e6c7;
+  --color-tertiary-3: #edd6a4;
+  --color-tertiary-4: #e6c581;
+
+  /* Hover effect (lighter than original, but still subtle) */
+  --color-hover: linear-gradient(
+    90deg,
+    rgba(255, 163, 163, 0) 0%,
+    rgba(255, 163, 163, 0.1) 100%
+  );
+}
