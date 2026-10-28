@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: clamp(5.5rem, 6.112vw, 100rem);
+  height: clamp(2.5rem, 2.778vw, 100rem);
+
+  .icon {
+    width: clamp(20px, 1.39vw, 30rem);
+    color: var(--color-neutral-2);
+  }
+  .profileWrapper {
+    cursor: pointer;
+    width: clamp(2.5rem, 2.778vw, 30rem);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+
+    .image {
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .image {
+    height: clamp(2rem, 2.223vw, 10rem) !important;
+  }
+}

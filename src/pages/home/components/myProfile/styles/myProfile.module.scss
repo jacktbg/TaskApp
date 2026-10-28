@@ -1,0 +1,77 @@
+.container {
+  margin-top: clamp(1rem, 1.112vw, 5rem);
+
+  width: clamp(10rem, 76.945vw, 300rem);
+  height: 48vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 1.112vw, 5rem);
+
+  .image {
+    width: clamp(100px, 12vw, 100rem);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    box-shadow: 0 0 clamp(1rem, 1.112vw, 5rem) 0
+      var(--color-primary-4);
+  }
+
+  .fullName {
+    cursor: default;
+    color: var(--color-neutral-1);
+    font-weight: 700;
+    font-size: clamp(20px, 3.334vw, 5rem);
+    line-height: 56px;
+    letter-spacing: 1px;
+  }
+  .descriptionContainer {
+    display: flex;
+    flex-direction: column;
+    width: clamp(350px, 50vw, 300rem);
+    font-weight: 600;
+    font-size: clamp(12px, 1.25vw, 10rem);
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    background: var(--color-neutral-4);
+    color: var(--color-neutral-1);
+    border-radius: clamp(0.5rem, 0.556vw, 4rem);
+
+    .row {
+      display: flex;
+      width: 100%;
+      transition: background 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background: var(--color-hover);
+        color: var(--color-primary-4);
+      }
+    }
+
+    .cell1 {
+      width: 30%;
+      cursor: default;
+    }
+    .cell2 {
+      cursor: default;
+      width: 70%;
+    }
+
+    .link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .cell {
+      padding-left: clamp(2rem, 2.223vw, 10rem);
+      display: flex;
+      align-items: center;
+      height: clamp(50px, 5.556vw, 30rem);
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+  }
+}

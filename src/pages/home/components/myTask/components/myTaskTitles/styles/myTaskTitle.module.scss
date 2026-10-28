@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  height: clamp(3.5rem, 3.89vw, 300rem);
+  background: var(--color-neutral-4);
+  border: clamp(1px, 0.1vw, 10rem) solid
+    var(--color-neutral-3);
+  border-left: 0;
+  padding-left: clamp(1rem, 1.112vw, 30rem);
+
+  .title {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: clamp(15px, 1.042vw, 10rem);
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: var(--color-neutral-1);
+    text-transform: capitalize;
+  }
+}
+.name {
+  flex-shrink: 0;
+  width: clamp(337px, 34.723vw, 300rem);
+  border-left: clamp(1px, 0.1vw, 10rem) solid
+    var(--color-neutral-3);
+  border-radius: clamp(4px, 0.278vw, 10rem) 0 0
+    clamp(4px, 0.278vw, 10rem);
+}
+.tags {
+  flex-shrink: 0;
+  width: clamp(10.5rem, 11.667vw, 300rem);
+}
+.estimate {
+  flex-shrink: 0;
+  width: clamp(8.75rem, 9.723vw, 300rem);
+}
+.assignee {
+  flex-shrink: 0;
+  width: clamp(9.9375rem, 11.042vw, 300rem);
+}
+.dueDate {
+  flex: 1 0 7.75rem;
+  width: fit-content;
+  border-radius: 0 clamp(4px, 0.278vw, 10rem)
+    clamp(4px, 0.278vw, 10rem) 0;
+}

@@ -1,0 +1,36 @@
+.ANDROID,
+.IOS,
+.NODE_JS,
+.RAILS,
+.REACT {
+  height: clamp(2rem, 2.223vw, 10rem);
+  font-weight: 600;
+  font-size: clamp(15px, 1.042vw, 10rem);
+  padding: clamp(4px, 0.278vw, 10rem)
+    clamp(1rem, 1.112vw, 10rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: clamp(4px, 0.278vw, 10rem);
+}
+
+.ANDROID {
+  background: rgba(229, 180, 84, 0.1);
+  color: var(--color-tertiary-4);
+}
+.IOS {
+  background: rgba(112, 178, 82, 0.1);
+  color: var(--color-secondary-4);
+}
+.NODE_JS {
+  background: rgba(47, 97, 191, 0.1);
+  color: rgba(47, 97, 191, 1);
+}
+.RAILS {
+  background: var(--color-neutral-2-transparent);
+  color: var(--color-neutral-1);
+}
+.REACT {
+  background: rgba(218, 88, 75, 0.1);
+  color: var(--color-primary-4);
+}

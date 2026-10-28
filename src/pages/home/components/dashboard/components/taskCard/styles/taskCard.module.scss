@@ -1,0 +1,23 @@
+.taskCard {
+  display: flex;
+  flex-direction: column;
+  width: clamp(21.25rem, 24.167vw, 100rem);
+  height: clamp(13rem, 14.445vw, 30rem);
+  padding: clamp(1rem, 1.112vw, 20rem);
+  background: var(--color-neutral-4);
+  border-radius: clamp(0.5rem, 0.556vw, 10rem);
+  row-gap: clamp(1rem, 1.112vw, 2rem);
+  cursor: grab;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 1rem 0 var(--color-primary-4);
+  }
+}
+
+.hand {
+  flex: 1;
+  cursor: grab;
+  width: auto;
+  height: fit-content;
+}

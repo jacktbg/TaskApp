@@ -1,0 +1,14 @@
+.container {
+  background: var(--color-neutral-4);
+  flex: 1 0 7.75rem;
+  display: flex;
+  align-items: center;
+  padding-left: clamp(0.5rem, 0.556vw, 10rem);
+  border: clamp(1px, 0.1vw, 10rem) solid
+    var(--color-neutral-3);
+  border-top: none;
+}
+
+.text {
+  width: 100% !important;
+}

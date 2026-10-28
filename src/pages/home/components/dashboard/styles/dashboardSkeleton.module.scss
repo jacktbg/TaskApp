@@ -1,0 +1,76 @@
+.table {
+  margin-top: clamp(1rem, 1.112vw, 5rem);
+  width: clamp(10rem, 76.945vw, 300rem);
+  height: clamp(3rem, 3.334vw, 50rem);
+  display: flex;
+  flex-direction: column;
+  row-gap: clamp(1rem, 1.1115vw, 10rem);
+  flex: 1;
+  color: var(--color-neutral-1);
+  overflow: auto;
+
+  backdrop-filter: blur(10px); // apply blur
+  -webkit-backdrop-filter: blur(10px); // Safari support
+  border-radius: 1rem; // optional for visual polish
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // optional shadow
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  column-gap: clamp(2rem, 2.223vw, 10rem);
+  height: clamp(2rem, 2.223vw, 10rem);
+
+  .title {
+    flex-shrink: 0;
+    width: clamp(21.25rem, 24.167vw, 100rem);
+    height: 100%;
+    display: flex;
+    font-size: clamp(17px, 1.25vw, 10rem);
+    font-weight: 600;
+    line-height: 32px;
+    text-transform: capitalize;
+    align-items: center;
+    letter-spacing: 0.75px;
+    white-space-collapse: preserve;
+
+    .counter {
+      color: var(--color-neutral-2);
+    }
+  }
+}
+
+.tbody {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  column-gap: clamp(2rem, 2.223vw, 10rem);
+}
+
+@media screen and (max-width: 900px) {
+  .table {
+    margin-top: 1rem;
+    width: calc(100% - 1rem);
+    margin-left: 1rem;
+    max-height: 40rem;
+  }
+}
+
+@media (pointer: coarse) {
+  .myTaskContainer {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

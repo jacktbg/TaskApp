@@ -1,0 +1,12 @@
+.taskContainer {
+  display: flex;
+  height: clamp(3.5rem, 3.89vw, 300rem);
+  cursor: grab;
+  * {
+    transition: color 0.2s ease;
+  }
+
+  &:hover * {
+    color: var(--color-primary-4);
+  }
+}

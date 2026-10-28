@@ -1,0 +1,18 @@
+.projectInfo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: clamp(2rem, 2.223vw, 10rem);
+  justify-content: space-between;
+  column-gap: clamp(0.5rem, 0.556vw, 10rem);
+
+  .name {
+    flex: 1;
+    font-weight: 600;
+    font-size: clamp(17px, 1.25vw, 10rem);
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    display: flex;
+    align-items: center;
+  }
+}
